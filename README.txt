@@ -1,11 +1,12 @@
 NAIL ROOM
 
-v23 — final responsive QA.
-- fixed text/card overflow on narrow phones;
-- fixed the contact address heading on mobile;
-- fixed service and FAQ rows on narrow screens;
-- mobile navigation has stable contrast and sizing;
-- tablets up to 1024px now use the compact top navigation instead of a squeezed side rail;
-- booking controls stay inside their cards;
-- Polina portrait URL is lighter and the card keeps a local visual fallback while it loads;
-- website booking lists remain synchronized with the Telegram bot.
+v25 — final device QA.
+- fixed FAQ plus icons clipping on narrow phones;
+- aligned mobile drawer with the real 76px header height;
+- fixed mobile/tablet anchor navigation offsets;
+- fixed reveal-animation shift in anchor calculations;
+- improved tablet safety/FAQ/booking/contact layouts;
+- all master portraits are local and eagerly loaded;
+- Polina uses assets/master-polina.jpg with face-preserving crop;
+- removed backup HTML from deploy package;
+- site service/master/time order matches the Telegram bot.
