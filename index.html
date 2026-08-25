@@ -3484,10 +3484,105 @@ html,body{
   .faq-btn{grid-template-columns:26px minmax(0,1fr) 28px !important;gap:6px !important}
   .faq-btn strong{font-size:17px !important}
 }
+
+/* V24 — Polina portrait: local image, face kept in frame on all screens */
+.master:nth-child(2) .master-photo img{
+  object-fit:cover !important;
+  object-position:center 32% !important;
+}
+
+
+/* ==========================================================
+   V25 — FINAL DEVICE QA / REAL OVERFLOW FIXES
+   ========================================================== */
+
+/* Interactive circles must fit their declared grid tracks instead of
+   overflowing invisibly beyond the row. */
+@media (min-width:761px){
+  .service-btn .plus{
+    width:50px !important;
+    height:50px !important;
+    justify-self:center !important;
+  }
+  .faq-btn i{
+    width:46px !important;
+    height:46px !important;
+    justify-self:end !important;
+  }
+}
+
+/* Tablet portrait: use the full width rather than compressing long headings
+   and forms into narrow side-by-side columns. */
+@media (min-width:761px) and (max-width:1024px){
+  html{scroll-padding-top:80px !important}
+  main section[id],footer[id]{scroll-margin-top:80px !important}
+  .safety-grid,.faq-grid,.booking-grid,.contact-grid{
+    grid-template-columns:1fr !important;
+  }
+  .safety-copy,.faq-title,.booking-copy,.booking-form,.contact-copy,.contact-list{
+    width:100% !important;
+    max-width:100% !important;
+  }
+}
+
+@media (max-width:760px){
+  /* The actual phone header is 76px tall after the larger touch-target pass.
+     Drawer and anchor offsets now use that real height. */
+  .mobile-top{
+    height:76px !important;
+    min-height:76px !important;
+  }
+  .drawer{
+    inset:76px 0 0 0 !important;
+  }
+  html{scroll-padding-top:96px !important}
+  main section[id],footer[id],.filters,.service-list,.faq-list,.booking-form{
+    scroll-margin-top:96px !important;
+  }
+
+  /* The old icon was ~54px wide inside a 32px grid column and was visibly
+     cut off at the right edge on 280–390px phones. */
+  .faq-btn{
+    grid-template-columns:30px minmax(0,1fr) 32px !important;
+    column-gap:8px !important;
+    overflow:visible !important;
+  }
+  .faq-btn i{
+    width:32px !important;
+    height:32px !important;
+    min-width:32px !important;
+    min-height:32px !important;
+    font-size:20px !important;
+    line-height:1 !important;
+    justify-self:end !important;
+  }
+  .faq-btn strong{
+    min-width:0 !important;
+    overflow-wrap:break-word !important;
+  }
+
+  /* Keep every master portrait available immediately; no blank portrait card
+     while the user scrolls to section 05. */
+  .master-photo img{
+    opacity:1 !important;
+  }
+}
+
+@media (max-width:300px){
+  .faq-btn{
+    grid-template-columns:26px minmax(0,1fr) 28px !important;
+    column-gap:6px !important;
+  }
+  .faq-btn i{
+    width:28px !important;
+    height:28px !important;
+    min-width:28px !important;
+    min-height:28px !important;
+    font-size:18px !important;
+  }
+}
+
 </style>
-<link rel="preconnect" href="https://images.pexels.com" crossorigin>
-<link rel="dns-prefetch" href="//images.pexels.com">
-<link rel="preload" as="image" href="https://images.pexels.com/photos/18090215/pexels-photo-18090215.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=640&h=800" fetchpriority="high">
 </head>
 <body>
 <aside class="rail" aria-label="Навигация по разделам">
@@ -3526,7 +3621,7 @@ html,body{
 
 <section id="safety" class="safety section"><div class="shell safety-grid reveal"><div class="safety-copy"><div class="eyebrow">04 / БЕЗОПАСНОСТЬ</div><h2>Не мелким шрифтом.</h2><p class="lead">Безопасность — отдельная часть услуги, поэтому этот блок теперь читается как полноценный раздел, а не как сноска.</p></div><div class="safety-cards"><article class="safety-card"><div class="n">01</div><div><h3>Инструменты</h3><p>После каждого клиента инструменты проходят отдельный цикл очистки и подготовки.</p></div></article><article class="safety-card"><div class="n">02</div><div><h3>Одноразовые расходники</h3><p>То, что рассчитано на одно использование, не переходит от клиента к клиенту.</p></div></article><article class="safety-card"><div class="n">03</div><div><h3>Рабочая зона</h3><p>Стол и контактные поверхности подготавливаются перед каждой новой процедурой.</p></div></article></div></div></section>
 
-<section id="team" class="team section"><div class="shell team-grid"><div class="team-copy reveal"><div class="eyebrow">05 / МАСТЕРА</div><h2>Видно, к кому вы записываетесь.</h2><p class="lead">Фотографии, специализация и короткое описание — без безликих карточек с одной буквой.</p></div><div class="masters reveal"><article class="master"><div class="master-photo"><img src="assets/master-sofia.jpg" width="800" height="1000" alt="Портрет мастера Софии в салоне" decoding="async" loading="lazy"></div><div class="master-body"><h3>София</h3><b>МИНИМАЛИЗМ · КОРОТКАЯ ДЛИНА</b><p>Аккуратный нюд, естественная форма и спокойные дизайны.</p></div></article><article class="master"><div class="master-photo"><img src="https://images.pexels.com/photos/18090215/pexels-photo-18090215.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=640&h=800" width="667" height="1000" alt="Портрет мастера Полины с аппаратом для маникюра" decoding="async" loading="eager" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/hero-process.jpg';this.alt='Процесс маникюра мастера Полины'"></div><div class="master-body"><h3>Полина</h3><b>УКРЕПЛЕНИЕ · АРХИТЕКТУРА</b><p>Работа с тонкой пластиной, укрепление и более сложная форма.</p></div></article><article class="master"><div class="master-photo"><img src="assets/master-anastasia.jpg" width="800" height="1000" alt="Портрет мастера Анастасии в салоне" decoding="async" loading="lazy"></div><div class="master-body"><h3>Анастасия</h3><b>NAIL ART · CHROME · AURA</b><p>Акцентные дизайны, необычные сочетания и более смелая подача.</p></div></article></div></div></section>
+<section id="team" class="team section"><div class="shell team-grid"><div class="team-copy reveal"><div class="eyebrow">05 / МАСТЕРА</div><h2>Видно, к кому вы записываетесь.</h2><p class="lead">Фотографии, специализация и короткое описание — без безликих карточек с одной буквой.</p></div><div class="masters reveal"><article class="master"><div class="master-photo"><img src="assets/master-sofia.jpg" width="800" height="1000" alt="Портрет мастера Софии в салоне" decoding="async" loading="eager" fetchpriority="high"></div><div class="master-body"><h3>София</h3><b>МИНИМАЛИЗМ · КОРОТКАЯ ДЛИНА</b><p>Аккуратный нюд, естественная форма и спокойные дизайны.</p></div></article><article class="master"><div class="master-photo"><img src="assets/master-polina.jpg" width="800" height="1000" alt="Портрет мастера Полины в салоне" decoding="async" loading="eager" fetchpriority="high"></div><div class="master-body"><h3>Полина</h3><b>УКРЕПЛЕНИЕ · АРХИТЕКТУРА</b><p>Работа с тонкой пластиной, укрепление и более сложная форма.</p></div></article><article class="master"><div class="master-photo"><img src="assets/master-anastasia.jpg" width="800" height="1000" alt="Портрет мастера Анастасии в салоне" decoding="async" loading="eager" fetchpriority="high"></div><div class="master-body"><h3>Анастасия</h3><b>NAIL ART · CHROME · AURA</b><p>Акцентные дизайны, необычные сочетания и более смелая подача.</p></div></article></div></div></section>
 
 <section id="faq" class="faq section"><div class="shell faq-grid reveal"><div class="faq-title"><div class="eyebrow">06 / ВОПРОСЫ</div><h2>Перед записью.</h2><p class="lead">Короткие ответы на то, что обычно спрашивают до визита.</p></div><div class="faq-list"><article class="faq-item open"><button class="faq-btn" type="button" aria-expanded="true"><span>01</span><strong>Сколько занимает маникюр с покрытием?</strong><i>+</i></button><div class="faq-answer"><div><p>Обычно около 1,5–2 часов. Точное время зависит от снятия, укрепления и дизайна.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>02</span><strong>Можно прийти со старым покрытием?</strong><i>+</i></button><div class="faq-answer"><div><p>Да. Снятие можно добавить к выбранной услуге.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>03</span><strong>Можно заранее показать референс?</strong><i>+</i></button><div class="faq-answer"><div><p>Да. Референс можно заранее показать мастеру перед визитом.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>04</span><strong>Как выбрать мастера?</strong><i>+</i></button><div class="faq-answer"><div><p>По специализации или по удобному свободному времени.</p></div></div></article></div></div></section>
 
@@ -3576,8 +3671,12 @@ const scrollToSection=(href)=>{
   const section=document.querySelector(href);
   if(!section) return;
   const marker=section.querySelector('.eyebrow') || section.querySelector('h2') || section;
-  const offset=window.innerWidth<=760 ? 92 : 42;
-  const y=Math.max(0, marker.getBoundingClientRect().top + window.scrollY - offset);
+  const offset=window.innerWidth<=760 ? 96 : (window.innerWidth<=1024 ? 80 : 42);
+  // offsetTop ignores reveal transforms, so the final position stays correct
+  // even after the entrance animation moves the content by 18px.
+  let layoutTop=0,node=marker;
+  while(node){layoutTop+=node.offsetTop||0;node=node.offsetParent}
+  const y=Math.max(0,layoutTop-offset);
   window.scrollTo({top:y,behavior:'smooth'});
 };
 navLinks.forEach(link=>link.addEventListener('click',e=>{
