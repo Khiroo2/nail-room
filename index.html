@@ -3356,10 +3356,138 @@ footer[id]{
   background-position:center !important;
 }
 
+
+/* ==========================================================
+   V23 — FINAL RESPONSIVE / OVERFLOW QA
+   ========================================================== */
+
+html,body{
+  max-width:100%;
+  overflow-x:hidden;
+}
+.site,.shell,main,section,footer{
+  max-width:100%;
+}
+/* Grid and flex children are allowed to shrink instead of pushing text outside. */
+.hero-grid>*,.intro-grid>*,.section-head>*,.works-head>*,.safety-grid>*,
+.team-grid>*,.faq-grid>*,.booking-grid>*,.contact-grid>*,.form-grid>*,
+.service-btn>*,.faq-btn>*,.safety-card>*,.master>*,.package>*{
+  min-width:0;
+}
+
+/* Long UI text must stay inside its own card. */
+.service-btn h3,.faq-btn strong,.safety-card h3,.master-body h3,
+.contact-item strong,.creator,.booking-summary,.submit-note{
+  max-width:100%;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+.field select,.field input{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+}
+
+/* Tablets previously kept the desktop rail and squeezed the site into ~500 px.
+   Use the compact top navigation up to 1024 px so the content gets the full screen. */
+@media (min-width:761px) and (max-width:1024px){
+  .rail{display:none !important}
+  .site{margin-left:0 !important;width:100% !important;max-width:100% !important}
+  .mobile-top{
+    position:fixed !important;z-index:100 !important;top:0 !important;left:0 !important;right:0 !important;
+    height:64px !important;display:flex !important;align-items:center !important;justify-content:space-between !important;
+    padding:0 18px !important;background:rgba(255,250,247,.97) !important;border-bottom:1px solid var(--line) !important;
+  }
+  .mobile-brand{font-weight:950 !important;font-size:15px !important}
+  .mobile-brand small{display:block !important;margin-top:3px !important;font-size:8px !important;letter-spacing:.14em !important;color:var(--muted) !important}
+  .burger{width:44px !important;height:44px !important;border-radius:50% !important;border:1px solid var(--line) !important;background:#fffaf7 !important;display:grid !important;place-items:center !important}
+  .burger span,.burger span:before,.burger span:after{width:18px !important;height:1.5px !important;background:var(--ink) !important;display:block !important;content:'' !important;position:relative !important}
+  .burger span:before{position:absolute !important;top:-5px !important}
+  .burger span:after{position:absolute !important;top:5px !important}
+  .drawer{
+    position:fixed !important;z-index:120 !important;inset:64px 0 0 0 !important;display:block !important;
+    background:linear-gradient(180deg,#fff9f6 0%,#f7e7ec 100%) !important;color:#24191d !important;
+    transform:translateX(-100%) !important;transition:transform .24s ease !important;
+    padding:26px 24px !important;overflow:auto !important;
+  }
+  .drawer.open{transform:none !important}
+  .drawer a{
+    display:flex !important;gap:14px !important;align-items:baseline !important;padding:15px 14px !important;
+    color:#24191d !important;background:rgba(255,255,255,.74) !important;
+    border:1px solid rgba(143,41,72,.13) !important;border-radius:14px !important;margin-bottom:8px !important;
+    font:500 30px Georgia !important;text-shadow:none !important;
+  }
+  .drawer a span{font:900 10px Arial !important;color:#b22f58 !important;opacity:1 !important}
+  .site .shell{width:min(94%,960px) !important;max-width:94% !important;margin-left:auto !important;margin-right:auto !important}
+  .section{scroll-margin-top:72px !important}
+  .hero{padding-top:96px !important}
+}
+
+@media (max-width:760px){
+  /* Make the fixed navigation fully opaque so text underneath never shows through. */
+  .mobile-top{background:#fffaf7 !important}
+  .drawer{padding:18px 16px 24px !important}
+  .drawer a{min-width:0 !important;max-width:100% !important}
+
+  /* Hero lettering and section titles should not clip on 320–430 px phones. */
+  .hero h1{
+    font-size:clamp(52px,16vw,68px) !important;
+    line-height:.82 !important;
+    max-width:100% !important;
+  }
+  .hero h1 em{margin-left:5vw !important}
+  h2{max-width:100% !important}
+  .contact h2{
+    font-size:clamp(46px,15vw,58px) !important;
+    line-height:.9 !important;
+    letter-spacing:-.035em !important;
+  }
+
+  /* Accordion rows: the middle text column can actually shrink. */
+  .service-btn{
+    grid-template-columns:32px minmax(0,1fr) auto !important;
+    gap:8px !important;
+    overflow:hidden !important;
+  }
+  .service-btn h3{font-size:clamp(21px,6.6vw,25px) !important;line-height:1.06 !important}
+  .service-btn .price{font-size:11px !important;white-space:nowrap !important}
+  .faq-btn{
+    grid-template-columns:30px minmax(0,1fr) 32px !important;
+    gap:8px !important;
+    overflow:hidden !important;
+  }
+  .faq-btn strong{font-size:clamp(18px,5.5vw,21px) !important;line-height:1.2 !important}
+  .faq-answer p{padding-left:38px !important;padding-right:4px !important}
+
+  /* Extra safety against long labels and contact data. */
+  .safety-card{overflow:hidden !important}
+  .safety-card h3{overflow-wrap:break-word !important}
+  .contact-item strong,.creator a{overflow-wrap:anywhere !important}
+  .booking-summary{line-height:1.5 !important}
+  .submit-btn{max-width:100% !important;white-space:normal !important;text-align:center !important}
+}
+
+@media (max-width:340px){
+  h2{font-size:40px !important;line-height:.94 !important}
+  .contact h2{font-size:45px !important}
+  .hero h1{font-size:50px !important}
+  .shell{width:calc(100% - 20px) !important}
+  .booking-copy,.booking-form{padding:18px !important}
+  .safety-card{padding:19px 15px !important}
+  .safety-card h3{font-size:24px !important}
+  .drawer a{font-size:19px !important}
+}
+
+
+@media (max-width:300px){
+  .contact h2{font-size:40px !important;line-height:.92 !important}
+  .faq-btn{grid-template-columns:26px minmax(0,1fr) 28px !important;gap:6px !important}
+  .faq-btn strong{font-size:17px !important}
+}
 </style>
 <link rel="preconnect" href="https://images.pexels.com" crossorigin>
 <link rel="dns-prefetch" href="//images.pexels.com">
-<link rel="preload" as="image" href="https://images.pexels.com/photos/18090215/pexels-photo-18090215.jpeg?auto=compress&cs=tinysrgb&w=900">
+<link rel="preload" as="image" href="https://images.pexels.com/photos/18090215/pexels-photo-18090215.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=640&h=800" fetchpriority="high">
 </head>
 <body>
 <aside class="rail" aria-label="Навигация по разделам">
@@ -3398,7 +3526,7 @@ footer[id]{
 
 <section id="safety" class="safety section"><div class="shell safety-grid reveal"><div class="safety-copy"><div class="eyebrow">04 / БЕЗОПАСНОСТЬ</div><h2>Не мелким шрифтом.</h2><p class="lead">Безопасность — отдельная часть услуги, поэтому этот блок теперь читается как полноценный раздел, а не как сноска.</p></div><div class="safety-cards"><article class="safety-card"><div class="n">01</div><div><h3>Инструменты</h3><p>После каждого клиента инструменты проходят отдельный цикл очистки и подготовки.</p></div></article><article class="safety-card"><div class="n">02</div><div><h3>Одноразовые расходники</h3><p>То, что рассчитано на одно использование, не переходит от клиента к клиенту.</p></div></article><article class="safety-card"><div class="n">03</div><div><h3>Рабочая зона</h3><p>Стол и контактные поверхности подготавливаются перед каждой новой процедурой.</p></div></article></div></div></section>
 
-<section id="team" class="team section"><div class="shell team-grid"><div class="team-copy reveal"><div class="eyebrow">05 / МАСТЕРА</div><h2>Видно, к кому вы записываетесь.</h2><p class="lead">Фотографии, специализация и короткое описание — без безликих карточек с одной буквой.</p></div><div class="masters reveal"><article class="master"><div class="master-photo"><img src="assets/master-sofia.jpg" width="800" height="1000" alt="Портрет мастера Софии в салоне" decoding="async" loading="lazy"></div><div class="master-body"><h3>София</h3><b>МИНИМАЛИЗМ · КОРОТКАЯ ДЛИНА</b><p>Аккуратный нюд, естественная форма и спокойные дизайны.</p></div></article><article class="master"><div class="master-photo"><img src="https://images.pexels.com/photos/18090215/pexels-photo-18090215.jpeg?auto=compress&cs=tinysrgb&w=900" width="667" height="1000" alt="Портрет мастера Полины с аппаратом для маникюра" decoding="async" loading="eager" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/hero-process.jpg';this.alt='Процесс маникюра мастера Полины'"></div><div class="master-body"><h3>Полина</h3><b>УКРЕПЛЕНИЕ · АРХИТЕКТУРА</b><p>Работа с тонкой пластиной, укрепление и более сложная форма.</p></div></article><article class="master"><div class="master-photo"><img src="assets/master-anastasia.jpg" width="800" height="1000" alt="Портрет мастера Анастасии в салоне" decoding="async" loading="lazy"></div><div class="master-body"><h3>Анастасия</h3><b>NAIL ART · CHROME · AURA</b><p>Акцентные дизайны, необычные сочетания и более смелая подача.</p></div></article></div></div></section>
+<section id="team" class="team section"><div class="shell team-grid"><div class="team-copy reveal"><div class="eyebrow">05 / МАСТЕРА</div><h2>Видно, к кому вы записываетесь.</h2><p class="lead">Фотографии, специализация и короткое описание — без безликих карточек с одной буквой.</p></div><div class="masters reveal"><article class="master"><div class="master-photo"><img src="assets/master-sofia.jpg" width="800" height="1000" alt="Портрет мастера Софии в салоне" decoding="async" loading="lazy"></div><div class="master-body"><h3>София</h3><b>МИНИМАЛИЗМ · КОРОТКАЯ ДЛИНА</b><p>Аккуратный нюд, естественная форма и спокойные дизайны.</p></div></article><article class="master"><div class="master-photo"><img src="https://images.pexels.com/photos/18090215/pexels-photo-18090215.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=640&h=800" width="667" height="1000" alt="Портрет мастера Полины с аппаратом для маникюра" decoding="async" loading="eager" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/hero-process.jpg';this.alt='Процесс маникюра мастера Полины'"></div><div class="master-body"><h3>Полина</h3><b>УКРЕПЛЕНИЕ · АРХИТЕКТУРА</b><p>Работа с тонкой пластиной, укрепление и более сложная форма.</p></div></article><article class="master"><div class="master-photo"><img src="assets/master-anastasia.jpg" width="800" height="1000" alt="Портрет мастера Анастасии в салоне" decoding="async" loading="lazy"></div><div class="master-body"><h3>Анастасия</h3><b>NAIL ART · CHROME · AURA</b><p>Акцентные дизайны, необычные сочетания и более смелая подача.</p></div></article></div></div></section>
 
 <section id="faq" class="faq section"><div class="shell faq-grid reveal"><div class="faq-title"><div class="eyebrow">06 / ВОПРОСЫ</div><h2>Перед записью.</h2><p class="lead">Короткие ответы на то, что обычно спрашивают до визита.</p></div><div class="faq-list"><article class="faq-item open"><button class="faq-btn" type="button" aria-expanded="true"><span>01</span><strong>Сколько занимает маникюр с покрытием?</strong><i>+</i></button><div class="faq-answer"><div><p>Обычно около 1,5–2 часов. Точное время зависит от снятия, укрепления и дизайна.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>02</span><strong>Можно прийти со старым покрытием?</strong><i>+</i></button><div class="faq-answer"><div><p>Да. Снятие можно добавить к выбранной услуге.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>03</span><strong>Можно заранее показать референс?</strong><i>+</i></button><div class="faq-answer"><div><p>Да. Референс можно заранее показать мастеру перед визитом.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>04</span><strong>Как выбрать мастера?</strong><i>+</i></button><div class="faq-answer"><div><p>По специализации или по удобному свободному времени.</p></div></div></article></div></div></section>
 
