@@ -3241,7 +3241,125 @@ footer[id]{
   }
 }
 
+
+/* ==========================================================
+   V21 — MOBILE QA FIXES
+   ========================================================== */
+
+/* Package prices must remain readable on the light cards. */
+.package strong{
+  color:#8f2948 !important;
+  font-weight:950 !important;
+  text-shadow:none !important;
+}
+
+/* Prevent text from forcing grid columns wider than the card. */
+.safety-card > div:last-child{
+  min-width:0 !important;
+}
+.safety-card h3{
+  max-width:100% !important;
+  overflow-wrap:anywhere !important;
+  word-break:normal !important;
+}
+
+@media(max-width:760px){
+  /* Mobile drawer is light, so the labels must be dark. */
+  .drawer{
+    color:#24191d !important;
+    background:linear-gradient(180deg,#fff9f6 0%,#f7e7ec 100%) !important;
+  }
+  .drawer a{
+    color:#24191d !important;
+    background:rgba(255,255,255,.74) !important;
+    border:1px solid rgba(143,41,72,.13) !important;
+    box-shadow:0 8px 22px rgba(92,49,61,.05) !important;
+    text-shadow:none !important;
+  }
+  .drawer a:visited,
+  .drawer a:hover,
+  .drawer a:focus-visible{
+    color:#24191d !important;
+  }
+  .drawer a span{
+    color:#b22f58 !important;
+    opacity:1 !important;
+  }
+
+  /* Package prices: stronger contrast on phones. */
+  .package strong{
+    color:#7f203f !important;
+    font-size:22px !important;
+    font-weight:950 !important;
+  }
+
+  /* Safety cards: stable two-column layout on narrow screens. */
+  .safety-card{
+    grid-template-columns:42px minmax(0,1fr) !important;
+    gap:14px !important;
+    padding:23px 20px !important;
+    min-height:0 !important;
+    align-items:start !important;
+  }
+  .safety-card .n{
+    font-size:32px !important;
+    line-height:1 !important;
+  }
+  .safety-card h3{
+    font-size:clamp(27px,7.7vw,32px) !important;
+    line-height:1.08 !important;
+    letter-spacing:-.025em !important;
+    margin:0 !important;
+  }
+  .safety-card p{
+    margin-top:10px !important;
+    font-size:16px !important;
+    line-height:1.55 !important;
+  }
+
+  /* If a master photo is delayed, the card never looks like an empty hole. */
+  .master-photo{
+    background:linear-gradient(145deg,#f5dce4,#eee5df) !important;
+  }
+  .master-photo img{
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+  }
+}
+
+@media(max-width:390px){
+  .drawer a{
+    font-size:20px !important;
+  }
+  .safety-card{
+    grid-template-columns:38px minmax(0,1fr) !important;
+    gap:12px !important;
+    padding:21px 17px !important;
+  }
+  .safety-card .n{
+    font-size:29px !important;
+  }
+  .safety-card h3{
+    font-size:26px !important;
+  }
+  .safety-card p{
+    font-size:15px !important;
+  }
+}
+
+
+/* V22: local visual fallback behind Polina's remote portrait, so the card is never blank. */
+.master:nth-child(2) .master-photo{
+  background-image:url('assets/hero-process.jpg') !important;
+  background-size:cover !important;
+  background-position:center !important;
+}
+
 </style>
+<link rel="preconnect" href="https://images.pexels.com" crossorigin>
+<link rel="dns-prefetch" href="//images.pexels.com">
+<link rel="preload" as="image" href="https://images.pexels.com/photos/18090215/pexels-photo-18090215.jpeg?auto=compress&cs=tinysrgb&w=900">
 </head>
 <body>
 <aside class="rail" aria-label="Навигация по разделам">
@@ -3280,11 +3398,11 @@ footer[id]{
 
 <section id="safety" class="safety section"><div class="shell safety-grid reveal"><div class="safety-copy"><div class="eyebrow">04 / БЕЗОПАСНОСТЬ</div><h2>Не мелким шрифтом.</h2><p class="lead">Безопасность — отдельная часть услуги, поэтому этот блок теперь читается как полноценный раздел, а не как сноска.</p></div><div class="safety-cards"><article class="safety-card"><div class="n">01</div><div><h3>Инструменты</h3><p>После каждого клиента инструменты проходят отдельный цикл очистки и подготовки.</p></div></article><article class="safety-card"><div class="n">02</div><div><h3>Одноразовые расходники</h3><p>То, что рассчитано на одно использование, не переходит от клиента к клиенту.</p></div></article><article class="safety-card"><div class="n">03</div><div><h3>Рабочая зона</h3><p>Стол и контактные поверхности подготавливаются перед каждой новой процедурой.</p></div></article></div></div></section>
 
-<section id="team" class="team section"><div class="shell team-grid"><div class="team-copy reveal"><div class="eyebrow">05 / МАСТЕРА</div><h2>Видно, к кому вы записываетесь.</h2><p class="lead">Фотографии, специализация и короткое описание — без безликих карточек с одной буквой.</p></div><div class="masters reveal"><article class="master"><div class="master-photo"><img src="assets/master-sofia.jpg" width="800" height="1000" alt="Портрет мастера Софии в салоне" decoding="async" loading="lazy"></div><div class="master-body"><h3>София</h3><b>МИНИМАЛИЗМ · КОРОТКАЯ ДЛИНА</b><p>Аккуратный нюд, естественная форма и спокойные дизайны.</p></div></article><article class="master"><div class="master-photo"><img src="https://images.pexels.com/photos/18090215/pexels-photo-18090215.jpeg?auto=compress&cs=tinysrgb&w=900" width="667" height="1000" alt="Портрет мастера Полины с аппаратом для маникюра" decoding="async" loading="lazy"></div><div class="master-body"><h3>Полина</h3><b>УКРЕПЛЕНИЕ · АРХИТЕКТУРА</b><p>Работа с тонкой пластиной, укрепление и более сложная форма.</p></div></article><article class="master"><div class="master-photo"><img src="assets/master-anastasia.jpg" width="800" height="1000" alt="Портрет мастера Анастасии в салоне" decoding="async" loading="lazy"></div><div class="master-body"><h3>Анастасия</h3><b>NAIL ART · CHROME · AURA</b><p>Акцентные дизайны, необычные сочетания и более смелая подача.</p></div></article></div></div></section>
+<section id="team" class="team section"><div class="shell team-grid"><div class="team-copy reveal"><div class="eyebrow">05 / МАСТЕРА</div><h2>Видно, к кому вы записываетесь.</h2><p class="lead">Фотографии, специализация и короткое описание — без безликих карточек с одной буквой.</p></div><div class="masters reveal"><article class="master"><div class="master-photo"><img src="assets/master-sofia.jpg" width="800" height="1000" alt="Портрет мастера Софии в салоне" decoding="async" loading="lazy"></div><div class="master-body"><h3>София</h3><b>МИНИМАЛИЗМ · КОРОТКАЯ ДЛИНА</b><p>Аккуратный нюд, естественная форма и спокойные дизайны.</p></div></article><article class="master"><div class="master-photo"><img src="https://images.pexels.com/photos/18090215/pexels-photo-18090215.jpeg?auto=compress&cs=tinysrgb&w=900" width="667" height="1000" alt="Портрет мастера Полины с аппаратом для маникюра" decoding="async" loading="eager" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/hero-process.jpg';this.alt='Процесс маникюра мастера Полины'"></div><div class="master-body"><h3>Полина</h3><b>УКРЕПЛЕНИЕ · АРХИТЕКТУРА</b><p>Работа с тонкой пластиной, укрепление и более сложная форма.</p></div></article><article class="master"><div class="master-photo"><img src="assets/master-anastasia.jpg" width="800" height="1000" alt="Портрет мастера Анастасии в салоне" decoding="async" loading="lazy"></div><div class="master-body"><h3>Анастасия</h3><b>NAIL ART · CHROME · AURA</b><p>Акцентные дизайны, необычные сочетания и более смелая подача.</p></div></article></div></div></section>
 
 <section id="faq" class="faq section"><div class="shell faq-grid reveal"><div class="faq-title"><div class="eyebrow">06 / ВОПРОСЫ</div><h2>Перед записью.</h2><p class="lead">Короткие ответы на то, что обычно спрашивают до визита.</p></div><div class="faq-list"><article class="faq-item open"><button class="faq-btn" type="button" aria-expanded="true"><span>01</span><strong>Сколько занимает маникюр с покрытием?</strong><i>+</i></button><div class="faq-answer"><div><p>Обычно около 1,5–2 часов. Точное время зависит от снятия, укрепления и дизайна.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>02</span><strong>Можно прийти со старым покрытием?</strong><i>+</i></button><div class="faq-answer"><div><p>Да. Снятие можно добавить к выбранной услуге.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>03</span><strong>Можно заранее показать референс?</strong><i>+</i></button><div class="faq-answer"><div><p>Да. Референс можно заранее показать мастеру перед визитом.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>04</span><strong>Как выбрать мастера?</strong><i>+</i></button><div class="faq-answer"><div><p>По специализации или по удобному свободному времени.</p></div></div></article></div></div></section>
 
-<section id="booking" class="booking section"><div class="shell booking-grid"><div class="booking-copy reveal"><div class="eyebrow">07 / ЗАПИСЬ</div><h2>Запись через Telegram.</h2><p class="lead">Выберите услугу, мастера, дату и время на сайте. Telegram-бот получит выбор и попросит только имя и телефон для подтверждения.</p><span class="status">ONLINE · TELEGRAM BOT</span></div><form class="booking-form reveal" id="bookingForm"><div class="form-grid"><div class="field"><label for="serviceSelect">Услуга</label><select id="serviceSelect"><option>Маникюр + покрытие</option><option>Маникюр без покрытия</option><option>Укрепление</option><option>Френч</option><option>Nail art</option></select></div><div class="field"><label for="masterSelect">Мастер</label><select id="masterSelect"><option>София</option><option>Полина</option><option>Анастасия</option></select></div><div class="field"><label for="dateInput">Дата</label><input id="dateInput" type="date"></div><div class="field"><label for="timeSelect">Время</label><select id="timeSelect"><option>14:30</option><option>16:00</option><option>18:30</option></select></div></div><div class="booking-summary" id="bookingSummary">Маникюр + покрытие · София · выберите дату · 14:30</div><div class="submit-row"><button class="submit-btn" type="submit">Продолжить в Telegram →</button><span class="submit-note">Имя и телефон бот запросит в Telegram. Выбранные на сайте услуга, мастер, дата и время сохранятся.</span></div><div class="form-message" id="formMessage" aria-live="polite"></div></form></div></section>
+<section id="booking" class="booking section"><div class="shell booking-grid"><div class="booking-copy reveal"><div class="eyebrow">07 / ЗАПИСЬ</div><h2>Запись через Telegram.</h2><p class="lead">Выберите услугу, мастера, дату и время на сайте. Telegram-бот получит выбор и попросит только имя и телефон для подтверждения.</p><span class="status">ONLINE · TELEGRAM BOT</span></div><form class="booking-form reveal" id="bookingForm"><div class="form-grid"><div class="field"><label for="serviceSelect">Услуга</label><select id="serviceSelect"><option>Маникюр + покрытие</option><option>Маникюр без покрытия</option><option>Укрепление</option><option>Френч</option><option>Nail art</option><option>SPA-уход для рук</option><option>Снятие + маникюр</option><option>Коррекция одного ногтя</option></select></div><div class="field"><label for="masterSelect">Мастер</label><select id="masterSelect"><option>София</option><option>Полина</option><option>Анастасия</option></select></div><div class="field"><label for="dateInput">Дата</label><input id="dateInput" type="date"></div><div class="field"><label for="timeSelect">Время</label><select id="timeSelect"><option>10:00</option><option>12:00</option><option>14:30</option><option>16:00</option><option>18:30</option></select></div></div><div class="booking-summary" id="bookingSummary">Маникюр + покрытие · София · выберите дату · 14:30</div><div class="submit-row"><button class="submit-btn" type="submit">Продолжить в Telegram →</button><span class="submit-note">Имя и телефон бот запросит в Telegram. Выбранные на сайте услуга, мастер, дата и время сохранятся.</span></div><div class="form-message" id="formMessage" aria-live="polite"></div></form></div></section>
 </main>
 
 <footer id="contact" class="contact"><div class="shell"><div class="contact-grid"><div><div class="eyebrow">08 / КОНТАКТЫ</div><h2>Самара.<br>Ленинградская, 38.</h2><div class="contact-list"><div class="contact-item"><span>Режим</span><strong>10:00–21:00 · ежедневно</strong></div><div class="contact-item"><span>Телефон салона</span><strong>+7 (927) 314-28-61</strong></div><div class="contact-item"><span>Запись</span><strong>Telegram · онлайн-запись</strong></div><div class="contact-item"><span>Статус</span><strong>Демонстрационный проект</strong></div></div></div><div class="creator"><b>Разработка сайта — Кошелев Илья Вадимович</b><br>Телефон: <a href="tel:+79334294564">+7 933 429-45-64</a><br>Telegram: <a href="https://t.me/all_might_symbol" target="_blank" rel="noreferrer">@all_might_symbol</a></div></div><div class="copyright">© 2026 NAIL ROOM · демонстрационный проект.</div></div></footer>
@@ -3306,7 +3424,7 @@ const formatBookingDate=value=>{if(!value)return 'выберите дату';con
 const updateSummary=()=>{summary.textContent=`${serviceSelect.value} · ${masterSelect.value} · ${formatBookingDate(dateInput.value)} · ${timeSelect.value}`;if(dateInput.value)formMessage.textContent=''};
 [serviceSelect,masterSelect,timeSelect].forEach(x=>x.addEventListener('change',updateSummary));
 dateInput.addEventListener('input',updateSummary);dateInput.addEventListener('change',updateSummary);
-const today=new Date();today.setMinutes(today.getMinutes()-today.getTimezoneOffset());dateInput.min=today.toISOString().slice(0,10);
+const today=new Date();today.setMinutes(today.getMinutes()-today.getTimezoneOffset());dateInput.min=today.toISOString().slice(0,10);const maxDate=new Date(today);maxDate.setDate(maxDate.getDate()+6);dateInput.max=maxDate.toISOString().slice(0,10);
 updateSummary();window.addEventListener('pageshow',updateSummary);
 document.getElementById('bookingForm').addEventListener('submit',e=>{
   e.preventDefault();
