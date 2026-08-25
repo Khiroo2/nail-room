@@ -3596,8 +3596,23 @@ html,body{
 }
 
 </style>
-<link rel="preconnect" href="https://images.pexels.com" crossorigin>
-<link rel="preload" as="image" href="https://images.pexels.com/photos/3993455/pexels-photo-3993455.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=1000" fetchpriority="high">
+
+<style>
+/* V28 FINAL — Polina portrait */
+.master:nth-child(2){margin-top:0 !important;}
+.master:nth-child(2) .master-photo{
+  background:linear-gradient(145deg,#f4e5e9,#eadde2) !important;
+  background-image:none !important;
+}
+.master:nth-child(2) .master-photo img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center 24% !important;
+}
+</style>
+
 </head>
 <body>
 <aside class="rail" aria-label="Навигация по разделам">
@@ -3636,7 +3651,7 @@ html,body{
 
 <section id="safety" class="safety section"><div class="shell safety-grid reveal"><div class="safety-copy"><div class="eyebrow">04 / БЕЗОПАСНОСТЬ</div><h2>Не мелким шрифтом.</h2><p class="lead">Безопасность — отдельная часть услуги, поэтому этот блок теперь читается как полноценный раздел, а не как сноска.</p></div><div class="safety-cards"><article class="safety-card"><div class="n">01</div><div><h3>Инструменты</h3><p>После каждого клиента инструменты проходят отдельный цикл очистки и подготовки.</p></div></article><article class="safety-card"><div class="n">02</div><div><h3>Одноразовые расходники</h3><p>То, что рассчитано на одно использование, не переходит от клиента к клиенту.</p></div></article><article class="safety-card"><div class="n">03</div><div><h3>Рабочая зона</h3><p>Стол и контактные поверхности подготавливаются перед каждой новой процедурой.</p></div></article></div></div></section>
 
-<section id="team" class="team section"><div class="shell team-grid"><div class="team-copy reveal"><div class="eyebrow">05 / МАСТЕРА</div><h2>Видно, к кому вы записываетесь.</h2><p class="lead">Фотографии, специализация и короткое описание — без безликих карточек с одной буквой.</p></div><div class="masters reveal"><article class="master"><div class="master-photo"><img src="assets/master-sofia.jpg" width="800" height="1000" alt="Портрет мастера Софии в салоне" decoding="async" loading="eager" fetchpriority="high"></div><div class="master-body"><h3>София</h3><b>МИНИМАЛИЗМ · КОРОТКАЯ ДЛИНА</b><p>Аккуратный нюд, естественная форма и спокойные дизайны.</p></div></article><article class="master"><div class="master-photo"><img src="https://images.pexels.com/photos/3993455/pexels-photo-3993455.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=1000" width="800" height="1000" alt="Портрет мастера Полины в салоне" decoding="async" loading="eager" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/master-polina.jpg';"></div><div class="master-body"><h3>Полина</h3><b>УКРЕПЛЕНИЕ · АРХИТЕКТУРА</b><p>Работа с тонкой пластиной, укрепление и более сложная форма.</p></div></article><article class="master"><div class="master-photo"><img src="assets/master-anastasia.jpg" width="800" height="1000" alt="Портрет мастера Анастасии в салоне" decoding="async" loading="eager" fetchpriority="high"></div><div class="master-body"><h3>Анастасия</h3><b>NAIL ART · CHROME · AURA</b><p>Акцентные дизайны, необычные сочетания и более смелая подача.</p></div></article></div></div></section>
+<section id="team" class="team section"><div class="shell team-grid"><div class="team-copy reveal"><div class="eyebrow">05 / МАСТЕРА</div><h2>Видно, к кому вы записываетесь.</h2><p class="lead">Фотографии, специализация и короткое описание — без безликих карточек с одной буквой.</p></div><div class="masters reveal"><article class="master"><div class="master-photo"><img src="assets/master-sofia.jpg" width="800" height="1000" alt="Портрет мастера Софии в салоне" decoding="async" loading="eager" fetchpriority="high"></div><div class="master-body"><h3>София</h3><b>МИНИМАЛИЗМ · КОРОТКАЯ ДЛИНА</b><p>Аккуратный нюд, естественная форма и спокойные дизайны.</p></div></article><article class="master"><div class="master-photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Studio_Portrait_of_a_Woman.jpg/500px-Studio_Portrait_of_a_Woman.jpg" width="500" height="1173" alt="Полина — мастер NAIL ROOM" decoding="async" loading="eager" fetchpriority="high" onerror="this.style.display='none'"></div><div class="master-body"><h3>Полина</h3><b>УКРЕПЛЕНИЕ · АРХИТЕКТУРА</b><p>Работа с тонкой пластиной, укрепление и более сложная форма.</p></div></article><article class="master"><div class="master-photo"><img src="assets/master-anastasia.jpg" width="800" height="1000" alt="Портрет мастера Анастасии в салоне" decoding="async" loading="eager" fetchpriority="high"></div><div class="master-body"><h3>Анастасия</h3><b>NAIL ART · CHROME · AURA</b><p>Акцентные дизайны, необычные сочетания и более смелая подача.</p></div></article></div></div></section>
 
 <section id="faq" class="faq section"><div class="shell faq-grid reveal"><div class="faq-title"><div class="eyebrow">06 / ВОПРОСЫ</div><h2>Перед записью.</h2><p class="lead">Короткие ответы на то, что обычно спрашивают до визита.</p></div><div class="faq-list"><article class="faq-item open"><button class="faq-btn" type="button" aria-expanded="true"><span>01</span><strong>Сколько занимает маникюр с покрытием?</strong><i>+</i></button><div class="faq-answer"><div><p>Обычно около 1,5–2 часов. Точное время зависит от снятия, укрепления и дизайна.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>02</span><strong>Можно прийти со старым покрытием?</strong><i>+</i></button><div class="faq-answer"><div><p>Да. Снятие можно добавить к выбранной услуге.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>03</span><strong>Можно заранее показать референс?</strong><i>+</i></button><div class="faq-answer"><div><p>Да. Референс можно заранее показать мастеру перед визитом.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>04</span><strong>Как выбрать мастера?</strong><i>+</i></button><div class="faq-answer"><div><p>По специализации или по удобному свободному времени.</p></div></div></article></div></div></section>
 
