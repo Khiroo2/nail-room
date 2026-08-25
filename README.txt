@@ -1,10 +1,11 @@
 NAIL ROOM
 
-v22 — full QA + mobile fixes.
-- mobile drawer contrast fixed;
-- package price contrast fixed;
-- safety-card overflow fixed;
-- Polina card always has a local visual fallback;
-- booking services and time slots synchronized with Telegram bot;
-- site date picker synchronized to the bot's 7-day window;
-- booking summary/date and Telegram deep-link preserved.
+v23 — final responsive QA.
+- fixed text/card overflow on narrow phones;
+- fixed the contact address heading on mobile;
+- fixed service and FAQ rows on narrow screens;
+- mobile navigation has stable contrast and sizing;
+- tablets up to 1024px now use the compact top navigation instead of a squeezed side rail;
+- booking controls stay inside their cards;
+- Polina portrait URL is lighter and the card keeps a local visual fallback while it loads;
+- website booking lists remain synchronized with the Telegram bot.
