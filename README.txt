@@ -1,9 +1,10 @@
 NAIL ROOM
 
-v27 — masters card fix.
-- Polina now uses a real professional salon portrait from Pexels;
-- broken remote image falls back to local master-polina.jpg;
-- removed manicure-process background fallback;
-- removed visible broken-image/alt-text state;
-- all three master cards aligned to one row;
-- all v25 responsive fixes preserved.
+v28 final — Polina portrait fix.
+- removed Pexels entirely;
+- removed manicure-process fallback;
+- Polina now uses a real CC0 portrait from Wikimedia Commons;
+- if remote image ever fails, broken alt text is hidden instead of showing hands/process image;
+- all previous responsive and booking fixes preserved.
+
+Photo source: Wikimedia Commons, Studio Portrait of a Woman.jpg (CC0).
