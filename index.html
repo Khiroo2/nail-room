@@ -1,0 +1,3355 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7eee9">
+<meta name="description" content="NAIL ROOM — демонстрационный сайт студии маникюра в Самаре.">
+<title>NAIL ROOM — студия маникюра в Самаре</title>
+<style>
+:root{--bg:#f7eee9;--paper:#fffaf7;--ink:#1d1719;--muted:#786c70;--line:rgba(29,23,25,.13);--pink:#d96f8b;--rose:#b84f6d;--peach:#f1b6a5;--lilac:#a896c8;--dark:#171316;--soft:#f1dce2;--shadow:0 18px 50px rgba(46,26,32,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}img{display:block;width:100%;height:auto}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:Georgia,'Times New Roman',serif}.shell{width:min(1280px,calc(100% - 54px));margin:auto}.section{padding:96px 0;scroll-margin-top:24px}.eyebrow{font-size:10px;font-weight:950;letter-spacing:.18em;text-transform:uppercase;color:var(--rose)}h2{font-size:clamp(48px,6vw,84px);line-height:.93;letter-spacing:-.055em;font-weight:500}.lead{color:var(--muted);font-size:16px;line-height:1.65}
+
+/* desktop left rail */
+.rail{position:fixed;z-index:90;left:0;top:0;bottom:0;width:188px;padding:24px 18px;display:flex;flex-direction:column;background:rgba(255,250,247,.96);border-right:1px solid var(--line)}.rail-brand{font-weight:950;font-size:17px;line-height:1}.rail-brand small{display:block;margin-top:6px;font-size:8px;letter-spacing:.16em;color:var(--muted)}.rail-mark{width:13px;height:13px;border-radius:4px;background:linear-gradient(135deg,var(--pink),var(--peach));display:inline-block;margin-right:8px;transform:rotate(12deg)}.rail-nav{display:grid;gap:6px;margin:auto 0}.rail-nav a{display:grid;grid-template-columns:26px 1fr;gap:7px;align-items:center;padding:10px 10px;border-radius:12px;color:#6f6266;font-size:12px;font-weight:800;transition:.18s}.rail-nav a span{font-size:8px;letter-spacing:.12em;color:#a59499}.rail-nav a:hover,.rail-nav a.active{background:#f4dfe5;color:var(--ink)}.rail-foot{font-size:9px;line-height:1.55;color:#998b90}
+
+/* mobile topbar + drawer */
+.mobile-top{display:none}.drawer{display:none}
+
+.site{margin-left:188px}
+
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding:64px 0 44px;position:relative;overflow:hidden}.hero:before{content:'';position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(217,111,139,.18),transparent 66%);right:8%;top:5%;pointer-events:none}.hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:5vw;align-items:center}.hero h1{font-size:clamp(74px,9vw,138px);line-height:.77;letter-spacing:-.075em;font-weight:500}.hero h1 em{display:block;color:var(--rose);font-weight:400;margin-left:8vw;text-transform:none}.hero-copy .lead{max-width:540px;margin-top:26px;font-size:18px}.hero-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:30px}.text-link{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:900;border-bottom:1px solid currentColor;padding-bottom:4px}.text-link.alt{color:var(--rose)}.hero-notes{display:flex;gap:20px;flex-wrap:wrap;margin-top:32px;padding-top:18px;border-top:1px solid var(--line)}.hero-notes b{display:block;font-size:13px}.hero-notes span{display:block;margin-top:3px;font-size:10px;color:var(--muted)}.hero-media{position:relative;min-height:620px}.hero-main{position:absolute;right:0;top:0;width:70%;height:78%;border-radius:180px 180px 22px 22px;overflow:hidden;box-shadow:var(--shadow)}.hero-main img,.hero-process img{height:100%;object-fit:cover}.hero-process{position:absolute;left:0;bottom:0;width:50%;height:44%;border-radius:22px;overflow:hidden;border:8px solid var(--bg);box-shadow:var(--shadow)}.hero-badge{position:absolute;right:2%;bottom:7%;width:105px;height:105px;border-radius:50%;display:grid;place-items:center;text-align:center;background:#fff8f5;border:1px solid var(--line);font-size:9px;font-weight:950;letter-spacing:.12em;line-height:1.45}
+
+/* intro */
+.intro{background:var(--paper)}.intro-grid{display:grid;grid-template-columns:1fr .8fr;gap:7vw;align-items:end}.intro-copy .lead{margin-top:24px;max-width:680px;font-size:18px}.intro-points{display:grid;grid-template-columns:1fr 1fr;gap:12px}.point{padding:18px;border:1px solid var(--line);border-radius:16px;background:#fff}.point strong{display:block;font:500 26px Georgia}.point span{display:block;margin-top:7px;font-size:11px;color:var(--muted);line-height:1.45}
+
+/* services */
+.services{background:var(--dark);color:#fff;position:relative;overflow:hidden}.services:before{content:'';position:absolute;inset:auto -10% -30% auto;width:520px;height:520px;border-radius:50%;background:rgba(217,111,139,.08)}.section-head{display:grid;grid-template-columns:1fr .55fr;gap:40px;align-items:end;margin-bottom:36px}.services .lead{color:#a89da1}.service-list{border-top:1px solid rgba(255,255,255,.15)}.service-row{border-bottom:1px solid rgba(255,255,255,.15)}.service-btn{width:100%;display:grid;grid-template-columns:52px 1fr auto 38px;gap:16px;align-items:center;padding:19px 0;background:none;border:0;color:#fff;text-align:left}.service-btn .num{font-size:9px;color:#857b7f}.service-btn h3{font-size:clamp(24px,2.8vw,39px);font-weight:400}.service-btn .price{font-size:13px;font-weight:900;color:#d9cfd2;white-space:nowrap}.service-btn .plus{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.18);font-size:20px;transition:.2s}.service-row.open .plus{transform:rotate(45deg);background:var(--pink);border-color:var(--pink)}.service-detail{display:grid;grid-template-rows:0fr;transition:grid-template-rows .24s ease}.service-detail>div{overflow:hidden}.service-row.open .service-detail{grid-template-rows:1fr}.service-detail p{padding:0 0 18px 68px;max-width:730px;color:#a99fa2;font-size:14px;line-height:1.55}.packages{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}.package{padding:20px;border-radius:18px;background:linear-gradient(145deg,#241c21,#1c171a);border:1px solid rgba(255,255,255,.11)}.package.featured{background:linear-gradient(145deg,#3a1d28,#25171d);border-color:rgba(217,111,139,.35)}.package small{font-size:9px;letter-spacing:.14em;color:#a99fa2;font-weight:900}.package h3{margin-top:16px;font-size:31px;font-weight:400}.package p{margin-top:8px;color:#a99fa2;font-size:13px;line-height:1.5}.package strong{display:block;margin-top:18px;color:#f1b6c8;font-size:15px}
+
+/* works */
+.works{background:#fbf4f0}.works-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:28px}.works-head .lead{max-width:420px}.filters{display:flex;gap:7px;flex-wrap:wrap;margin-top:22px}.filter{min-height:38px;padding:8px 13px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:11px;font-weight:900}.filter.active{background:var(--ink);color:#fff;border-color:var(--ink)}.works-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.work{position:relative;overflow:hidden;border-radius:16px;background:#e8ddd7;aspect-ratio:4/5}.work img{height:100%;object-fit:cover;transition:transform .35s ease}.work:hover img{transform:scale(1.025)}.work-tag{position:absolute;left:10px;bottom:10px;padding:7px 9px;border-radius:999px;background:rgba(255,250,247,.9);font-size:9px;font-weight:950;letter-spacing:.08em}.work.hidden{display:none}
+
+/* safety */
+.safety{background:linear-gradient(135deg,#f0dce3,#f7e8e1)}.safety-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:6vw;align-items:start}.safety-copy .lead{margin-top:20px;max-width:520px}.safety-cards{display:grid;gap:12px}.safety-card{display:grid;grid-template-columns:58px 1fr;gap:16px;padding:24px;border:1px solid rgba(29,23,25,.12);border-radius:18px;background:rgba(255,250,247,.72)}.safety-card .n{font:500 32px Georgia;color:var(--rose)}.safety-card h3{font-size:30px;font-weight:500}.safety-card p{margin-top:8px;color:#74686c;font-size:15px;line-height:1.55}
+
+/* team */
+.team{background:var(--paper)}.team-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:5vw;align-items:start}.team-copy{position:sticky;top:50px}.team-copy .lead{margin-top:22px}.masters{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:start}.master{overflow:hidden;border-radius:18px;border:1px solid var(--line);background:#fff}.master:nth-child(2){margin-top:34px}.master-photo{aspect-ratio:4/5;overflow:hidden;background:#eee}.master-photo img{height:100%;object-fit:cover}.master-body{padding:17px}.master-body h3{font-size:29px;font-weight:500}.master-body b{display:block;margin-top:5px;font-size:11px;color:var(--rose)}.master-body p{margin-top:9px;font-size:13px;line-height:1.55;color:var(--muted)}
+
+/* faq */
+.faq{background:#f5e9e5}.faq-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:6vw}.faq-title .lead{margin-top:18px}.faq-list{border-top:1px solid var(--line)}.faq-item{border-bottom:1px solid var(--line)}.faq-btn{width:100%;display:grid;grid-template-columns:40px 1fr 34px;gap:12px;align-items:center;padding:19px 0;border:0;background:none;color:var(--ink);text-align:left}.faq-btn span{font-size:9px;font-weight:900;color:var(--rose)}.faq-btn strong{font:500 22px Georgia}.faq-btn i{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);font-style:normal;font-size:19px}.faq-item.open .faq-btn i{transform:rotate(45deg);background:var(--pink);color:#fff;border-color:var(--pink)}.faq-answer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .22s ease}.faq-answer>div{overflow:hidden}.faq-item.open .faq-answer{grid-template-rows:1fr}.faq-answer p{padding:0 40px 18px 52px;color:var(--muted);font-size:14px;line-height:1.55}
+
+/* booking */
+.booking{background:#fffaf7}.booking-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:18px}.booking-copy{padding:28px;border-radius:22px;background:linear-gradient(145deg,#241920,#171316);color:#fff;position:relative;overflow:hidden}.booking-copy:after{content:'';position:absolute;width:290px;height:290px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-80px;top:-70px}.booking-copy .lead{margin-top:20px;color:#b7aaae}.booking-copy .status{display:inline-flex;margin-top:28px;padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14);font-size:10px;color:#d7cbd0}.booking-form{padding:26px;border:1px solid var(--line);border-radius:22px;background:#fff}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:9px;font-weight:950;letter-spacing:.12em;color:#8d7d82;text-transform:uppercase}.field input,.field select{width:100%;min-height:48px;border:1px solid var(--line);border-radius:12px;padding:0 13px;background:#fffaf7;color:var(--ink);outline:none}.field input:focus,.field select:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(217,111,139,.09)}.booking-summary{margin-top:14px;padding:14px;border-radius:14px;background:#f8efeb;border:1px solid var(--line);font-size:12px;line-height:1.6;color:#6f6266}.submit-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px}.submit-btn{min-height:44px;padding:0 16px;border-radius:12px;border:0;background:var(--ink);color:#fff;font-size:12px;font-weight:900}.submit-note{font-size:10px;color:var(--muted);max-width:300px}.form-message{margin-top:12px;font-size:12px;font-weight:800;color:var(--rose);min-height:18px}
+
+/* footer */
+.contact{background:var(--dark);color:#fff;padding:60px 0 30px}.contact-grid{display:grid;grid-template-columns:1fr .7fr;gap:50px}.contact h2{font-size:clamp(44px,5vw,72px)}.contact-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.contact-item{padding:14px 0;border-top:1px solid rgba(255,255,255,.14)}.contact-item span{display:block;font-size:9px;letter-spacing:.12em;color:#8f8488;text-transform:uppercase;font-weight:900}.contact-item strong{display:block;margin-top:5px;font-size:15px}.creator{align-self:end;padding:16px;border:1px solid rgba(255,255,255,.13);border-radius:14px;color:#aca0a4;font-size:12px;line-height:1.6}.creator b{color:#fff}.creator a{color:#f0a9bd}.copyright{margin-top:30px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);font-size:9px;color:#746a6d}
+
+/* progressive render */
+.services,.works,.safety,.team,.faq,.booking,.contact{content-visibility:auto;contain-intrinsic-size:700px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:1120px){.rail{width:164px}.site{margin-left:164px}.rail-nav a{font-size:11px}.works-grid{grid-template-columns:repeat(3,1fr)}.masters{grid-template-columns:1fr 1fr}.master:nth-child(2){margin-top:0}.team-grid{grid-template-columns:1fr}.team-copy{position:static}}
+
+@media(max-width:760px){
+  .rail{display:none}.site{margin-left:0}.mobile-top{position:fixed;z-index:100;top:0;left:0;right:0;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:rgba(255,250,247,.97);border-bottom:1px solid var(--line)}.mobile-brand{font-weight:950;font-size:14px}.mobile-brand small{display:block;margin-top:3px;font-size:7px;letter-spacing:.14em;color:var(--muted)}.burger{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fffaf7;display:grid;place-items:center}.burger span,.burger span:before,.burger span:after{width:18px;height:1.5px;background:var(--ink);display:block;content:'';position:relative}.burger span:before{position:absolute;top:-5px}.burger span:after{position:absolute;top:5px}.drawer{position:fixed;z-index:120;inset:64px 0 0 0;display:block;background:#1a1518;color:#fff;transform:translateX(-100%);transition:transform .24s ease;padding:24px 18px;overflow:auto}.drawer.open{transform:none}.drawer a{display:flex;gap:13px;align-items:baseline;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.12);font:500 34px Georgia}.drawer a span{font:900 9px Arial;color:#8d8286}.shell{width:calc(100% - 28px)}.section{padding:66px 0;scroll-margin-top:68px}h2{font-size:clamp(42px,12vw,55px)}.hero{padding:94px 0 46px;min-height:auto}.hero-grid{grid-template-columns:1fr;gap:24px}.hero h1{font-size:clamp(58px,17vw,74px)}.hero h1 em{margin-left:7vw}.hero-copy .lead{font-size:16px;line-height:1.58}.hero-media{min-height:430px}.hero-main{width:79%;height:73%;border-radius:120px 120px 16px 16px}.hero-process{width:56%;height:43%;border-width:6px}.hero-badge{width:76px;height:76px;font-size:7px}.intro-grid,.section-head,.works-head,.safety-grid,.team-grid,.faq-grid,.booking-grid,.contact-grid{grid-template-columns:1fr;display:grid;gap:26px}.intro-points{grid-template-columns:1fr 1fr}.service-btn{grid-template-columns:34px 1fr auto;gap:8px;padding:17px 0}.service-btn h3{font-size:24px}.service-btn .price{font-size:11px}.service-btn .plus{display:none}.service-detail p{padding-left:42px;font-size:13px}.packages{grid-template-columns:1fr}.works-head .lead{margin-top:14px}.works-grid{grid-template-columns:1fr 1fr;gap:9px}.work{border-radius:13px}.safety-card{grid-template-columns:44px 1fr;padding:18px}.safety-card h3{font-size:25px}.safety-card p{font-size:14px}.masters{grid-template-columns:1fr}.master-photo{aspect-ratio:4/5}.faq-btn{grid-template-columns:30px 1fr 30px;gap:8px}.faq-btn strong{font-size:19px}.faq-answer p{padding-left:38px;padding-right:36px}.booking-grid{gap:12px}.booking-copy,.booking-form{padding:20px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.submit-row{display:grid;justify-items:start}.contact-list{grid-template-columns:1fr}.work:hover img{transform:none}.reveal{opacity:1;transform:none}.services,.works,.safety,.team,.faq,.booking,.contact{content-visibility:auto;contain-intrinsic-size:520px}
+}
+@media(max-width:420px){.works-grid{grid-template-columns:1fr}.intro-points{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* ===== NAIL ROOM / LARGE UI PASS ===== */
+:root{
+  --ui-text:18px;
+  --ui-small:14px;
+  --ui-button:16px;
+}
+
+body{
+  font-size:var(--ui-text);
+  line-height:1.55;
+}
+
+/* Мелкие подписи делаем реально читаемыми */
+.micro,
+.vertical,
+.ticket-id,
+.master-index,
+.contact-item span,
+.ticket-cell span,
+.booking-ui-copy span,
+.overlay-caption,
+.service-btn .n,
+.faq-btn span,
+.hygiene-item>span,
+.tag{
+  font-size:12px !important;
+  line-height:1.35;
+  letter-spacing:.12em;
+}
+
+/* Основные абзацы */
+.hero-text,
+.about p,
+.services-head p,
+.look-head p,
+.team-copy p,
+.visit-title p,
+.faq-title p,
+.booking-ui-copy p,
+.creator,
+.contact-item strong,
+.hygiene-item p,
+.visit-step p,
+.master-text .master-copy p{
+  font-size:16px !important;
+  line-height:1.65;
+}
+
+/* Левая навигация / десктоп */
+.side-nav a,
+.desktop-nav a,
+.sidebar-nav a,
+.nav-left a,
+.links a{
+  font-size:20px !important;
+  line-height:1.15;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+}
+
+/* Все кнопки — крупнее и удобнее */
+button,
+.btn,
+.filter,
+.service-btn,
+.faq-btn,
+.menu,
+.mobile-menu,
+.mobile-book,
+.booking-action,
+.ticket-link-disabled,
+.hero-links a{
+  font-size:var(--ui-button) !important;
+}
+
+.filter{
+  min-height:44px;
+  padding:11px 16px !important;
+}
+
+.service-btn{
+  min-height:70px;
+}
+
+.service-btn h3{
+  font-size:34px !important;
+  line-height:1.05;
+}
+
+.service-btn .price{
+  font-size:16px !important;
+}
+
+.faq-btn{
+  min-height:68px;
+}
+
+.faq-btn strong{
+  font-size:24px !important;
+}
+
+.visit-step strong{
+  font-size:30px !important;
+}
+
+.hygiene-item strong{
+  font-size:28px !important;
+}
+
+.master-copy h3{
+  font-size:32px !important;
+}
+
+.master-copy span{
+  font-size:15px !important;
+  line-height:1.45;
+}
+
+.ticket-cell strong{
+  font-size:16px !important;
+}
+
+.booking-mini span{
+  font-size:13px !important;
+  padding:10px 14px !important;
+}
+
+.contact-item strong{
+  font-size:18px !important;
+}
+
+/* Заголовки секций — больше */
+h2{
+  font-size:clamp(58px,6.4vw,98px) !important;
+  line-height:.92;
+}
+
+/* Главный экран */
+.hero h1{
+  font-size:clamp(92px,10.5vw,168px) !important;
+}
+
+/* Верхний бренд */
+.brand{
+  font-size:17px !important;
+}
+.brand small{
+  font-size:10px !important;
+}
+
+/* Левое вертикальное меню если оно уже есть в v8 */
+@media(min-width:1051px){
+  .side-nav,
+  .desktop-nav,
+  .sidebar-nav,
+  .nav-left{
+    width:210px !important;
+  }
+  .side-nav a,
+  .desktop-nav a,
+  .sidebar-nav a,
+  .nav-left a{
+    padding:12px 0 !important;
+  }
+}
+
+/* Телефон: не делаем мелким ничего */
+@media(max-width:700px){
+  body{
+    font-size:17px;
+  }
+
+  .section{
+    padding:72px 0;
+  }
+
+  .brand{
+    font-size:15px !important;
+  }
+  .brand small{
+    font-size:9px !important;
+  }
+
+  .hero h1{
+    font-size:clamp(60px,17vw,74px) !important;
+    line-height:.84;
+  }
+
+  h2{
+    font-size:clamp(46px,13vw,60px) !important;
+  }
+
+  .hero-text,
+  .about p,
+  .services-head p,
+  .look-head p,
+  .team-copy p,
+  .visit-title p,
+  .faq-title p,
+  .booking-ui-copy p,
+  .creator,
+  .hygiene-item p,
+  .visit-step p,
+  .master-text .master-copy p{
+    font-size:16px !important;
+  }
+
+  .micro,
+  .vertical,
+  .ticket-id,
+  .master-index,
+  .contact-item span,
+  .ticket-cell span,
+  .booking-ui-copy span,
+  .overlay-caption,
+  .service-btn .n,
+  .faq-btn span,
+  .hygiene-item>span,
+  .tag{
+    font-size:11px !important;
+  }
+
+  .service-btn{
+    min-height:74px;
+  }
+  .service-btn h3{
+    font-size:27px !important;
+  }
+  .service-btn .price{
+    font-size:14px !important;
+  }
+
+  .faq-btn{
+    min-height:72px;
+  }
+  .faq-btn strong{
+    font-size:21px !important;
+  }
+
+  .filter{
+    min-height:46px;
+    padding:11px 15px !important;
+    font-size:14px !important;
+  }
+
+  .visit-step strong{
+    font-size:25px !important;
+  }
+
+  .hygiene-item strong{
+    font-size:24px !important;
+  }
+
+  .master-copy h3{
+    font-size:30px !important;
+  }
+
+  .master-copy span{
+    font-size:15px !important;
+  }
+
+  .ticket-cell strong{
+    font-size:16px !important;
+  }
+
+  .booking-mini span{
+    font-size:13px !important;
+  }
+
+  .contact-item strong{
+    font-size:18px !important;
+  }
+
+  .links a{
+    font-size:38px !important;
+    min-height:58px;
+  }
+
+  .menu,
+  .mobile-menu{
+    width:50px !important;
+    height:50px !important;
+  }
+}
+
+
+/* ==========================================================
+   NAIL ROOM v10 — BIG INTERFACE PASS
+   Масштабируем весь UI, а не только заголовки
+   ========================================================== */
+
+:root{
+  --big-body:19px;
+  --big-lead:21px;
+  --big-small:14px;
+  --big-control:17px;
+}
+
+body{
+  font-size:var(--big-body) !important;
+  line-height:1.6;
+}
+
+.shell{
+  width:min(1500px,92vw) !important;
+}
+
+.section{
+  padding:126px 0 !important;
+}
+
+/* Общие подписи и основной текст */
+.eyebrow{
+  font-size:13px !important;
+  letter-spacing:.15em !important;
+  margin-bottom:14px;
+}
+
+.lead{
+  font-size:var(--big-lead) !important;
+  line-height:1.65 !important;
+}
+
+h2{
+  font-size:clamp(68px,7vw,112px) !important;
+  line-height:.92 !important;
+}
+
+/* ==========================================================
+   ЛЕВАЯ НАВИГАЦИЯ
+   ========================================================== */
+.rail{
+  width:260px !important;
+  padding:32px 24px !important;
+}
+
+.site{
+  margin-left:260px !important;
+}
+
+.rail-brand{
+  font-size:22px !important;
+  line-height:1.05 !important;
+}
+
+.rail-brand small{
+  margin-top:9px !important;
+  font-size:11px !important;
+  line-height:1.35 !important;
+}
+
+.rail-mark{
+  width:17px !important;
+  height:17px !important;
+  margin-right:10px !important;
+}
+
+.rail-nav{
+  gap:10px !important;
+}
+
+.rail-nav a{
+  grid-template-columns:34px 1fr !important;
+  gap:10px !important;
+  min-height:58px !important;
+  padding:14px 14px !important;
+  border-radius:15px !important;
+  font-size:16px !important;
+  line-height:1.2 !important;
+}
+
+.rail-nav a span{
+  font-size:11px !important;
+}
+
+.rail-foot{
+  font-size:12px !important;
+  line-height:1.55 !important;
+}
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+.hero{
+  min-height:100svh !important;
+  padding:86px 0 72px !important;
+}
+
+.hero-grid{
+  grid-template-columns:.92fr 1.08fr !important;
+  gap:5.5vw !important;
+}
+
+.hero h1{
+  font-size:clamp(110px,10.7vw,188px) !important;
+  line-height:.76 !important;
+}
+
+.hero-copy .lead{
+  max-width:650px !important;
+  margin-top:34px !important;
+  font-size:23px !important;
+}
+
+.hero-links{
+  gap:24px !important;
+  margin-top:38px !important;
+}
+
+.text-link{
+  font-size:17px !important;
+  min-height:40px !important;
+  align-items:center !important;
+}
+
+.hero-notes{
+  gap:30px !important;
+  margin-top:42px !important;
+  padding-top:24px !important;
+}
+
+.hero-notes b{
+  font-size:17px !important;
+}
+
+.hero-notes span{
+  margin-top:5px !important;
+  font-size:13px !important;
+}
+
+.hero-media{
+  min-height:720px !important;
+}
+
+.hero-badge{
+  width:128px !important;
+  height:128px !important;
+  font-size:11px !important;
+}
+
+/* ==========================================================
+   О СТУДИИ
+   ========================================================== */
+.intro-grid{
+  gap:7vw !important;
+}
+
+.intro-copy .lead{
+  font-size:21px !important;
+}
+
+.intro-points{
+  gap:18px !important;
+}
+
+.point{
+  min-height:150px !important;
+  padding:26px !important;
+  border-radius:20px !important;
+}
+
+.point strong{
+  font-size:34px !important;
+}
+
+.point span{
+  margin-top:9px !important;
+  font-size:15px !important;
+  line-height:1.5 !important;
+}
+
+/* ==========================================================
+   УСЛУГИ
+   ========================================================== */
+.section-head{
+  gap:56px !important;
+  margin-bottom:52px !important;
+}
+
+.service-btn{
+  grid-template-columns:68px 1fr auto 48px !important;
+  gap:22px !important;
+  min-height:94px !important;
+  padding:28px 0 !important;
+}
+
+.service-btn .num{
+  font-size:13px !important;
+}
+
+.service-btn h3{
+  font-size:clamp(38px,3.5vw,54px) !important;
+}
+
+.service-btn .price{
+  font-size:18px !important;
+}
+
+.service-btn .plus{
+  width:46px !important;
+  height:46px !important;
+  font-size:26px !important;
+}
+
+.service-detail p{
+  padding:0 0 27px 90px !important;
+  max-width:860px !important;
+  font-size:18px !important;
+  line-height:1.65 !important;
+}
+
+.packages{
+  gap:18px !important;
+  margin-top:42px !important;
+}
+
+.package{
+  min-height:245px !important;
+  padding:30px !important;
+  border-radius:22px !important;
+}
+
+.package small{
+  font-size:12px !important;
+}
+
+.package h3{
+  margin-top:22px !important;
+  font-size:40px !important;
+}
+
+.package p{
+  margin-top:12px !important;
+  font-size:17px !important;
+  line-height:1.6 !important;
+}
+
+.package strong{
+  margin-top:25px !important;
+  font-size:20px !important;
+}
+
+/* ==========================================================
+   РАБОТЫ — три крупные карточки в ряд вместо четырёх мелких
+   ========================================================== */
+.works-head{
+  margin-bottom:42px !important;
+}
+
+.works-head .lead{
+  max-width:520px !important;
+}
+
+.filters{
+  gap:10px !important;
+  margin-top:28px !important;
+}
+
+.filter{
+  min-height:50px !important;
+  padding:12px 18px !important;
+  font-size:15px !important;
+}
+
+.works-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:18px !important;
+}
+
+.work{
+  border-radius:21px !important;
+}
+
+.work-tag{
+  left:14px !important;
+  bottom:14px !important;
+  padding:10px 13px !important;
+  font-size:13px !important;
+}
+
+/* ==========================================================
+   БЕЗОПАСНОСТЬ
+   ========================================================== */
+.safety-grid{
+  grid-template-columns:.65fr 1.35fr !important;
+  gap:7vw !important;
+}
+
+.safety-copy .lead{
+  margin-top:28px !important;
+  font-size:20px !important;
+}
+
+.safety-cards{
+  gap:18px !important;
+}
+
+.safety-card{
+  grid-template-columns:78px 1fr !important;
+  gap:22px !important;
+  min-height:180px !important;
+  padding:34px !important;
+  border-radius:22px !important;
+}
+
+.safety-card .n{
+  font-size:44px !important;
+}
+
+.safety-card h3{
+  font-size:38px !important;
+}
+
+.safety-card p{
+  margin-top:12px !important;
+  font-size:18px !important;
+  line-height:1.65 !important;
+}
+
+/* ==========================================================
+   МАСТЕРА
+   ========================================================== */
+.team-grid{
+  grid-template-columns:.62fr 1.38fr !important;
+  gap:6vw !important;
+}
+
+.team-copy .lead{
+  margin-top:30px !important;
+  font-size:20px !important;
+}
+
+.masters{
+  gap:18px !important;
+}
+
+.master{
+  border-radius:22px !important;
+}
+
+.master:nth-child(2){
+  margin-top:48px !important;
+}
+
+.master-body{
+  padding:24px !important;
+}
+
+.master-body h3,
+.master-copy h3{
+  font-size:39px !important;
+}
+
+.master-body b,
+.master-copy b{
+  margin-top:8px !important;
+  font-size:15px !important;
+}
+
+.master-body p,
+.master-copy p{
+  margin-top:13px !important;
+  font-size:17px !important;
+  line-height:1.6 !important;
+}
+
+/* ==========================================================
+   FAQ
+   ========================================================== */
+.faq-grid{
+  grid-template-columns:.6fr 1.4fr !important;
+  gap:7vw !important;
+}
+
+.faq-title .lead{
+  margin-top:25px !important;
+}
+
+.faq-btn{
+  grid-template-columns:54px 1fr 44px !important;
+  gap:16px !important;
+  min-height:88px !important;
+  padding:26px 0 !important;
+}
+
+.faq-btn span{
+  font-size:13px !important;
+}
+
+.faq-btn strong{
+  font-size:31px !important;
+  line-height:1.2 !important;
+}
+
+.faq-btn i{
+  width:42px !important;
+  height:42px !important;
+  font-size:24px !important;
+}
+
+.faq-answer p{
+  padding:0 52px 26px 70px !important;
+  font-size:18px !important;
+  line-height:1.65 !important;
+}
+
+/* ==========================================================
+   ЗАПИСЬ
+   ========================================================== */
+.booking-grid{
+  gap:26px !important;
+}
+
+.booking-copy{
+  padding:40px !important;
+  border-radius:26px !important;
+}
+
+.booking-copy .lead{
+  margin-top:28px !important;
+  font-size:20px !important;
+}
+
+.booking-copy .status{
+  margin-top:36px !important;
+  padding:11px 14px !important;
+  font-size:13px !important;
+}
+
+.booking-form{
+  padding:36px !important;
+  border-radius:26px !important;
+}
+
+.form-grid{
+  gap:16px !important;
+}
+
+.field{
+  gap:9px !important;
+}
+
+.field label{
+  font-size:13px !important;
+  letter-spacing:.1em !important;
+}
+
+.field input,
+.field select{
+  min-height:60px !important;
+  border-radius:15px !important;
+  padding:0 17px !important;
+  font-size:17px !important;
+}
+
+.booking-summary{
+  margin-top:20px !important;
+  padding:20px !important;
+  border-radius:17px !important;
+  font-size:16px !important;
+  line-height:1.65 !important;
+}
+
+.submit-row{
+  margin-top:20px !important;
+  gap:20px !important;
+}
+
+.submit-btn{
+  min-height:58px !important;
+  padding:0 24px !important;
+  border-radius:15px !important;
+  font-size:17px !important;
+}
+
+.submit-note{
+  font-size:13px !important;
+  line-height:1.5 !important;
+}
+
+.form-message{
+  margin-top:15px !important;
+  font-size:15px !important;
+}
+
+/* ==========================================================
+   ФУТЕР / КОНТАКТЫ
+   ========================================================== */
+.contact{
+  padding:88px 0 42px !important;
+}
+
+.contact h2{
+  font-size:clamp(62px,6vw,96px) !important;
+}
+
+.contact-list{
+  gap:14px !important;
+  margin-top:34px !important;
+}
+
+.contact-item{
+  padding:20px 0 !important;
+}
+
+.contact-item span{
+  font-size:12px !important;
+}
+
+.contact-item strong{
+  margin-top:8px !important;
+  font-size:20px !important;
+}
+
+.creator{
+  padding:24px !important;
+  border-radius:18px !important;
+  font-size:16px !important;
+  line-height:1.65 !important;
+}
+
+.copyright{
+  margin-top:42px !important;
+  padding-top:22px !important;
+  font-size:12px !important;
+}
+
+/* ==========================================================
+   ПЛАНШЕТ
+   ========================================================== */
+@media(max-width:1120px) and (min-width:761px){
+  .rail{
+    width:220px !important;
+    padding:26px 18px !important;
+  }
+
+  .site{
+    margin-left:220px !important;
+  }
+
+  .rail-nav a{
+    min-height:54px !important;
+    padding:12px 10px !important;
+    font-size:14px !important;
+  }
+
+  .rail-brand{
+    font-size:19px !important;
+  }
+
+  .works-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .masters{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+/* ==========================================================
+   ТЕЛЕФОН — крупный интерфейс, но без горизонтального скролла
+   ========================================================== */
+@media(max-width:760px){
+  body{
+    font-size:18px !important;
+  }
+
+  .section{
+    padding:86px 0 !important;
+  }
+
+  .mobile-top{
+    min-height:68px !important;
+    padding:0 14px !important;
+  }
+
+  .mobile-brand{
+    font-size:17px !important;
+    line-height:1.05 !important;
+  }
+
+  .mobile-brand small{
+    margin-top:4px !important;
+    font-size:9px !important;
+  }
+
+  .burger{
+    width:50px !important;
+    height:50px !important;
+  }
+
+  .drawer{
+    padding:82px 16px 22px !important;
+  }
+
+  .drawer a{
+    min-height:58px !important;
+    padding:14px 12px !important;
+    font-size:20px !important;
+    border-radius:14px !important;
+  }
+
+  .drawer a span{
+    font-size:11px !important;
+  }
+
+  .hero{
+    padding:98px 0 58px !important;
+  }
+
+  .hero h1{
+    font-size:clamp(68px,18vw,86px) !important;
+  }
+
+  .hero-copy .lead{
+    margin-top:25px !important;
+    font-size:19px !important;
+  }
+
+  .hero-links{
+    gap:18px !important;
+    margin-top:28px !important;
+  }
+
+  .text-link{
+    font-size:16px !important;
+  }
+
+  .hero-notes{
+    gap:18px !important;
+    margin-top:30px !important;
+  }
+
+  .hero-notes b{
+    font-size:16px !important;
+  }
+
+  .hero-notes span{
+    font-size:12px !important;
+  }
+
+  .hero-media{
+    min-height:500px !important;
+  }
+
+  h2{
+    font-size:clamp(54px,14vw,70px) !important;
+  }
+
+  .eyebrow{
+    font-size:12px !important;
+  }
+
+  .lead{
+    font-size:18px !important;
+  }
+
+  .intro-points{
+    grid-template-columns:1fr !important;
+  }
+
+  .point{
+    min-height:130px !important;
+    padding:24px !important;
+  }
+
+  .point strong{
+    font-size:31px !important;
+  }
+
+  .point span{
+    font-size:15px !important;
+  }
+
+  .service-btn{
+    grid-template-columns:38px minmax(0,1fr) auto !important;
+    min-height:88px !important;
+    gap:9px !important;
+    padding:24px 0 !important;
+  }
+
+  .service-btn .num{
+    font-size:12px !important;
+  }
+
+  .service-btn h3{
+    font-size:29px !important;
+  }
+
+  .service-btn .price{
+    font-size:15px !important;
+  }
+
+  .service-btn .plus{
+    display:none !important;
+  }
+
+  .service-detail p{
+    padding:0 0 22px 47px !important;
+    font-size:17px !important;
+  }
+
+  .packages{
+    grid-template-columns:1fr !important;
+  }
+
+  .package{
+    min-height:220px !important;
+    padding:28px !important;
+  }
+
+  .package h3{
+    font-size:37px !important;
+  }
+
+  .package p{
+    font-size:17px !important;
+  }
+
+  .package strong{
+    font-size:20px !important;
+  }
+
+  .works-grid{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+
+  .work-tag{
+    font-size:13px !important;
+    padding:10px 13px !important;
+  }
+
+  .safety-grid,
+  .team-grid,
+  .faq-grid,
+  .booking-grid,
+  .contact-grid{
+    grid-template-columns:1fr !important;
+    gap:34px !important;
+  }
+
+  .safety-card{
+    grid-template-columns:58px 1fr !important;
+    min-height:165px !important;
+    padding:26px !important;
+  }
+
+  .safety-card .n{
+    font-size:38px !important;
+  }
+
+  .safety-card h3{
+    font-size:31px !important;
+  }
+
+  .safety-card p{
+    font-size:17px !important;
+  }
+
+  .masters{
+    grid-template-columns:1fr !important;
+    gap:18px !important;
+  }
+
+  .master:nth-child(2){
+    margin-top:0 !important;
+  }
+
+  .master-body{
+    padding:23px !important;
+  }
+
+  .master-body h3,
+  .master-copy h3{
+    font-size:38px !important;
+  }
+
+  .master-body b,
+  .master-copy b{
+    font-size:15px !important;
+  }
+
+  .master-body p,
+  .master-copy p{
+    font-size:17px !important;
+  }
+
+  .faq-btn{
+    grid-template-columns:38px minmax(0,1fr) 38px !important;
+    min-height:82px !important;
+    padding:22px 0 !important;
+  }
+
+  .faq-btn strong{
+    font-size:24px !important;
+  }
+
+  .faq-answer p{
+    padding:0 42px 22px 46px !important;
+    font-size:16px !important;
+  }
+
+  .booking-copy,
+  .booking-form{
+    padding:26px !important;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .field.full{
+    grid-column:auto !important;
+  }
+
+  .field label{
+    font-size:12px !important;
+  }
+
+  .field input,
+  .field select{
+    min-height:58px !important;
+    font-size:17px !important;
+  }
+
+  .submit-row{
+    display:grid !important;
+  }
+
+  .submit-btn{
+    width:100% !important;
+    min-height:60px !important;
+  }
+
+  .submit-note{
+    font-size:13px !important;
+  }
+
+  .contact-item strong{
+    font-size:19px !important;
+  }
+
+  .creator{
+    font-size:15px !important;
+  }
+}
+
+/* Очень узкие телефоны */
+@media(max-width:390px){
+  .shell{
+    width:calc(100% - 24px) !important;
+  }
+
+  .hero h1{
+    font-size:64px !important;
+  }
+
+  h2{
+    font-size:49px !important;
+  }
+
+  .service-btn h3{
+    font-size:26px !important;
+  }
+
+  .service-btn .price{
+    font-size:14px !important;
+  }
+}
+
+
+/* ==========================================================
+   NAIL ROOM v11 — LUSH / BOLD / COLORFUL PASS
+   ========================================================== */
+
+:root{
+  --cream:#fff8f2;
+  --blush:#f6d6df;
+  --blush-2:#efb9c8;
+  --berry:#c93f68;
+  --berry-dark:#8e2847;
+  --coral:#f19982;
+  --lilac-2:#cfc2ec;
+  --lilac-deep:#8e79bb;
+  --sage:#bed6c4;
+  --gold:#e9c07f;
+  --night:#1a1418;
+}
+
+/* общий фон чуть богаче */
+body{
+  background:
+    radial-gradient(circle at 10% 8%,rgba(241,153,130,.15),transparent 22%),
+    radial-gradient(circle at 88% 18%,rgba(207,194,236,.16),transparent 25%),
+    linear-gradient(180deg,#fff9f5 0%,#f7ece8 100%);
+}
+
+/* ==========================
+   ЛЕВАЯ ПАНЕЛЬ
+   ========================== */
+.rail{
+  width:284px !important;
+  padding:34px 26px !important;
+  background:
+    linear-gradient(180deg,rgba(255,251,248,.98),rgba(249,235,239,.98)) !important;
+  border-right:1px solid rgba(201,63,104,.16) !important;
+  box-shadow:18px 0 50px rgba(105,46,65,.06);
+}
+.site{
+  margin-left:284px !important;
+}
+.rail-brand{
+  font-size:25px !important;
+  letter-spacing:-.025em !important;
+}
+.rail-brand small{
+  font-size:12px !important;
+  color:#8f707a !important;
+}
+.rail-mark{
+  width:20px !important;
+  height:20px !important;
+  border-radius:7px !important;
+  background:linear-gradient(135deg,var(--berry),var(--coral),var(--lilac-deep)) !important;
+  box-shadow:0 8px 20px rgba(201,63,104,.25);
+}
+.rail-nav{
+  gap:12px !important;
+}
+.rail-nav a{
+  min-height:62px !important;
+  padding:16px 15px !important;
+  font-size:17px !important;
+  border:1px solid transparent;
+  background:rgba(255,255,255,.42);
+}
+.rail-nav a:hover,
+.rail-nav a.active{
+  background:linear-gradient(135deg,#f7dfe6,#f4d6dc) !important;
+  border-color:rgba(201,63,104,.16) !important;
+  box-shadow:0 12px 28px rgba(138,58,83,.08);
+}
+.rail-nav a span{
+  font-size:12px !important;
+  color:var(--berry) !important;
+}
+.rail-foot{
+  font-size:13px !important;
+  color:#8f707a !important;
+}
+
+/* ==========================
+   HERO
+   ========================== */
+.hero{
+  min-height:100svh !important;
+  padding:94px 0 76px !important;
+  background:
+    linear-gradient(120deg,rgba(255,250,247,.78),rgba(255,242,246,.62)),
+    radial-gradient(circle at 76% 24%,rgba(201,63,104,.20),transparent 28%),
+    radial-gradient(circle at 68% 75%,rgba(207,194,236,.21),transparent 26%);
+}
+.hero:before{
+  width:640px !important;
+  height:640px !important;
+  right:-4% !important;
+  top:-10% !important;
+  background:radial-gradient(circle,rgba(201,63,104,.17),transparent 62%) !important;
+}
+.hero-grid{
+  gap:6vw !important;
+}
+.hero h1{
+  font-size:clamp(118px,11vw,200px) !important;
+  text-shadow:0 14px 40px rgba(87,38,54,.07);
+}
+.hero h1 em{
+  color:var(--berry) !important;
+}
+.hero-copy .lead{
+  font-size:24px !important;
+  color:#6f555e !important;
+}
+.text-link{
+  font-size:18px !important;
+  padding:11px 0 !important;
+}
+.text-link.alt{
+  color:var(--berry) !important;
+}
+.hero-notes{
+  border-top:1px solid rgba(201,63,104,.20) !important;
+}
+.hero-notes b{
+  font-size:18px !important;
+}
+.hero-notes span{
+  font-size:14px !important;
+  color:#8b7179 !important;
+}
+.hero-media{
+  min-height:760px !important;
+}
+.hero-main{
+  width:74% !important;
+  height:80% !important;
+  border-radius:210px 210px 28px 28px !important;
+  border:1px solid rgba(255,255,255,.8);
+  box-shadow:0 34px 80px rgba(88,44,58,.16) !important;
+}
+.hero-process{
+  width:54% !important;
+  height:46% !important;
+  border:11px solid #fff8f3 !important;
+  border-radius:28px !important;
+  box-shadow:0 28px 66px rgba(88,44,58,.14) !important;
+}
+.hero-badge{
+  width:145px !important;
+  height:145px !important;
+  background:linear-gradient(135deg,#fff,#f7dbe4) !important;
+  border:1px solid rgba(201,63,104,.20) !important;
+  color:var(--berry-dark);
+  box-shadow:0 18px 46px rgba(201,63,104,.15);
+  font-size:12px !important;
+}
+
+/* ==========================
+   ОБЩИЕ ЗАГОЛОВКИ
+   ========================== */
+.section{
+  padding:136px 0 !important;
+}
+.eyebrow{
+  font-size:14px !important;
+  color:var(--berry) !important;
+}
+h2{
+  font-size:clamp(72px,7.4vw,118px) !important;
+  line-height:.9 !important;
+}
+.lead{
+  font-size:21px !important;
+}
+
+/* ==========================
+   О СТУДИИ
+   ========================== */
+.intro{
+  background:
+    linear-gradient(180deg,#fffdfb,#f8eee9) !important;
+}
+.intro-points{
+  gap:20px !important;
+}
+.point{
+  min-height:180px !important;
+  padding:30px !important;
+  border:none !important;
+  box-shadow:0 22px 52px rgba(92,45,59,.08);
+}
+.point:nth-child(1){
+  background:linear-gradient(145deg,#f9dfe6,#fff7f8) !important;
+}
+.point:nth-child(2){
+  background:linear-gradient(145deg,#e8def8,#fff9ff) !important;
+}
+.point:nth-child(3){
+  background:linear-gradient(145deg,#f8dfd6,#fff9f4) !important;
+}
+.point:nth-child(4){
+  background:linear-gradient(145deg,#dfeee3,#fbfffc) !important;
+}
+.point strong{
+  font-size:40px !important;
+  color:var(--night);
+}
+.point span{
+  font-size:17px !important;
+  color:#76646a !important;
+}
+
+/* ==========================
+   УСЛУГИ
+   ========================== */
+.services{
+  background:
+    radial-gradient(circle at 85% 10%,rgba(201,63,104,.22),transparent 24%),
+    radial-gradient(circle at 75% 84%,rgba(143,121,187,.18),transparent 23%),
+    linear-gradient(180deg,#1a1418,#21151b 100%) !important;
+}
+.services .eyebrow{
+  color:#f4b8c8 !important;
+}
+.services h2{
+  color:#fff7fa;
+}
+.services .lead{
+  color:#c8b6bc !important;
+}
+.service-list{
+  border-top:1px solid rgba(255,255,255,.18) !important;
+}
+.service{
+  border-bottom:1px solid rgba(255,255,255,.16) !important;
+}
+.service-btn{
+  min-height:104px !important;
+}
+.service-btn h3{
+  font-size:clamp(42px,3.7vw,58px) !important;
+}
+.service-btn .price{
+  color:#f2c9d3 !important;
+  font-size:19px !important;
+}
+.service-btn .num{
+  color:#d994a8 !important;
+}
+.service-btn .plus{
+  border-color:rgba(255,255,255,.22) !important;
+}
+.service.open .service-btn h3{
+  color:#ffc9d8;
+}
+.service.open .service-btn .plus{
+  background:var(--berry) !important;
+}
+.service-detail p{
+  font-size:19px !important;
+  color:#cdbac0 !important;
+}
+.packages{
+  gap:22px !important;
+}
+.package{
+  min-height:270px !important;
+  border:none !important;
+  box-shadow:0 26px 60px rgba(0,0,0,.15);
+}
+.package:nth-child(1){
+  background:linear-gradient(145deg,#f6d6df,#fdf1f4) !important;
+  color:var(--night) !important;
+}
+.package:nth-child(2){
+  background:linear-gradient(145deg,#cfc2ec,#eee9fa) !important;
+  color:var(--night) !important;
+}
+.package:nth-child(3){
+  background:linear-gradient(145deg,#f2b8a8,#fbe1d9) !important;
+  color:var(--night) !important;
+}
+.package h3{
+  font-size:44px !important;
+}
+.package p{
+  font-size:18px !important;
+}
+.package strong{
+  font-size:23px !important;
+}
+
+/* ==========================
+   РАБОТЫ
+   ========================== */
+.works{
+  background:
+    linear-gradient(180deg,#fff8f4,#f6e8e4) !important;
+}
+.filters{
+  gap:12px !important;
+}
+.filter{
+  min-height:54px !important;
+  padding:13px 20px !important;
+  border:1px solid rgba(201,63,104,.20) !important;
+  background:rgba(255,255,255,.72) !important;
+}
+.filter.active{
+  background:var(--berry) !important;
+  color:#fff !important;
+  border-color:var(--berry) !important;
+}
+.works-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:22px !important;
+}
+.work{
+  border:none !important;
+  border-radius:26px !important;
+  box-shadow:0 24px 56px rgba(92,45,59,.12);
+  overflow:hidden;
+}
+.work-tag{
+  font-size:14px !important;
+  background:rgba(255,248,245,.94) !important;
+  color:var(--berry-dark) !important;
+  border:1px solid rgba(201,63,104,.16);
+}
+
+/* ==========================
+   БЕЗОПАСНОСТЬ
+   ========================== */
+.safety{
+  background:
+    radial-gradient(circle at 10% 15%,rgba(190,214,196,.32),transparent 25%),
+    linear-gradient(180deg,#f0f5ef,#e8efe7) !important;
+}
+.safety-card{
+  min-height:210px !important;
+  padding:38px !important;
+  border:none !important;
+  box-shadow:0 24px 56px rgba(69,87,73,.08);
+}
+.safety-card:nth-child(1){background:#fff8f1 !important}
+.safety-card:nth-child(2){background:#f4ebfb !important}
+.safety-card:nth-child(3){background:#eff8f1 !important}
+.safety-card .n{
+  color:var(--berry) !important;
+}
+.safety-card h3{
+  font-size:42px !important;
+}
+.safety-card p{
+  font-size:19px !important;
+  color:#667067 !important;
+}
+
+/* ==========================
+   МАСТЕРА
+   ========================== */
+.team{
+  background:
+    radial-gradient(circle at 82% 18%,rgba(241,153,130,.20),transparent 22%),
+    linear-gradient(180deg,#fff8f5,#f4e5e1) !important;
+}
+.masters{
+  gap:22px !important;
+}
+.master{
+  border:none !important;
+  border-radius:28px !important;
+  box-shadow:0 26px 60px rgba(92,45,59,.12);
+}
+.master:nth-child(1){background:#fff !important}
+.master:nth-child(2){background:#fbf3ff !important}
+.master:nth-child(3){background:#fff7f3 !important}
+.master-body{
+  padding:28px !important;
+}
+.master-body h3,
+.master-copy h3{
+  font-size:43px !important;
+  color:var(--night);
+}
+.master-body b,
+.master-copy b{
+  font-size:16px !important;
+  color:var(--berry) !important;
+}
+.master-body p,
+.master-copy p{
+  font-size:18px !important;
+}
+
+/* ==========================
+   FAQ
+   ========================== */
+.faq{
+  background:#fffaf7 !important;
+}
+.faq-btn{
+  min-height:98px !important;
+}
+.faq-btn strong{
+  font-size:34px !important;
+}
+.faq-btn i{
+  border-color:rgba(201,63,104,.25) !important;
+}
+.faq-item.open .faq-btn i{
+  background:var(--berry) !important;
+  color:#fff !important;
+}
+.faq-answer p{
+  font-size:18px !important;
+}
+
+/* ==========================
+   ЗАПИСЬ
+   ========================== */
+.booking{
+  background:
+    radial-gradient(circle at 12% 80%,rgba(207,194,236,.27),transparent 24%),
+    radial-gradient(circle at 80% 10%,rgba(241,153,130,.22),transparent 24%),
+    linear-gradient(180deg,#f7e7ec,#efe5f5) !important;
+}
+.booking-copy{
+  background:linear-gradient(145deg,#d95b81,#b83860) !important;
+  color:#fff !important;
+  box-shadow:0 30px 70px rgba(158,49,82,.18);
+}
+.booking-copy .eyebrow{
+  color:#ffd4df !important;
+}
+.booking-copy h2{
+  color:#fff !important;
+}
+.booking-copy .lead{
+  color:#ffe8ef !important;
+}
+.booking-copy .status{
+  background:rgba(255,255,255,.13) !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.20);
+}
+.booking-form{
+  background:#fffdfa !important;
+  border:none !important;
+  box-shadow:0 28px 66px rgba(93,55,96,.14);
+}
+.field label{
+  color:#7c626a !important;
+}
+.field input,
+.field select{
+  border:1px solid rgba(201,63,104,.16) !important;
+  background:#fff8f7 !important;
+}
+.field input:focus,
+.field select:focus{
+  outline:2px solid rgba(201,63,104,.25);
+  border-color:var(--berry) !important;
+}
+.booking-summary{
+  background:#f7e9ee !important;
+  border:1px solid rgba(201,63,104,.16) !important;
+  color:#6f5059;
+}
+.submit-btn{
+  background:linear-gradient(135deg,var(--berry),#ad3156) !important;
+  color:#fff !important;
+  border:none !important;
+  box-shadow:0 16px 34px rgba(173,49,86,.20);
+}
+.submit-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* ==========================
+   КОНТАКТЫ
+   ========================== */
+.contact{
+  background:
+    radial-gradient(circle at 82% 20%,rgba(201,63,104,.15),transparent 25%),
+    #181316 !important;
+}
+.contact .eyebrow{
+  color:#f4b7c7 !important;
+}
+.creator{
+  background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02)) !important;
+  border-color:rgba(255,255,255,.14) !important;
+}
+.creator a{
+  color:#f1b8c7 !important;
+}
+
+/* ==========================
+   АНИМАЦИИ — лёгкие, без перегруза
+   ========================== */
+.point,
+.package,
+.work,
+.safety-card,
+.master,
+.booking-form{
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+.point:hover,
+.package:hover,
+.work:hover,
+.safety-card:hover,
+.master:hover{
+  transform:translateY(-5px);
+}
+.work img,
+.master img{
+  transition:transform .32s ease;
+}
+.work:hover img,
+.master:hover img{
+  transform:scale(1.025);
+}
+
+/* ==========================
+   ПЛАНШЕТ
+   ========================== */
+@media(max-width:1180px) and (min-width:761px){
+  .rail{
+    width:236px !important;
+    padding:28px 18px !important;
+  }
+  .site{
+    margin-left:236px !important;
+  }
+  .rail-brand{
+    font-size:21px !important;
+  }
+  .rail-nav a{
+    min-height:56px !important;
+    font-size:15px !important;
+  }
+  .hero h1{
+    font-size:clamp(90px,10vw,140px) !important;
+  }
+  .works-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+/* ==========================
+   ТЕЛЕФОН — крупно, но комфортно
+   ========================== */
+@media(max-width:760px){
+  body{
+    background:linear-gradient(180deg,#fff9f5,#f7ece8) !important;
+  }
+  .mobile-top{
+    min-height:72px !important;
+    background:rgba(255,249,246,.97) !important;
+    border-bottom:1px solid rgba(201,63,104,.12);
+  }
+  .mobile-brand{
+    font-size:18px !important;
+  }
+  .burger{
+    width:52px !important;
+    height:52px !important;
+    background:#f7dfe6 !important;
+    border-color:rgba(201,63,104,.18) !important;
+  }
+  .drawer{
+    background:linear-gradient(180deg,#fff9f6,#f7e7ec) !important;
+  }
+  .drawer a{
+    min-height:60px !important;
+    font-size:21px !important;
+    background:rgba(255,255,255,.55);
+    border:1px solid rgba(201,63,104,.08);
+  }
+
+  .section{
+    padding:92px 0 !important;
+  }
+
+  .hero{
+    padding:102px 0 64px !important;
+  }
+  .hero h1{
+    font-size:clamp(72px,19vw,92px) !important;
+  }
+  .hero-copy .lead{
+    font-size:20px !important;
+  }
+  .hero-media{
+    min-height:530px !important;
+  }
+  .hero-main{
+    width:78% !important;
+    height:76% !important;
+    border-radius:160px 160px 22px 22px !important;
+  }
+  .hero-process{
+    width:58% !important;
+    height:43% !important;
+    border-width:7px !important;
+  }
+  .hero-badge{
+    width:100px !important;
+    height:100px !important;
+    font-size:9px !important;
+  }
+
+  h2{
+    font-size:clamp(56px,15vw,74px) !important;
+  }
+  .lead{
+    font-size:18px !important;
+  }
+
+  .intro-points,
+  .packages,
+  .works-grid,
+  .safety-cards,
+  .masters,
+  .form-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .point{
+    min-height:150px !important;
+    padding:27px !important;
+  }
+  .point strong{
+    font-size:35px !important;
+  }
+  .point span{
+    font-size:16px !important;
+  }
+
+  .service-btn{
+    min-height:92px !important;
+  }
+  .service-btn h3{
+    font-size:30px !important;
+  }
+  .service-btn .price{
+    font-size:15px !important;
+  }
+  .service-detail p{
+    font-size:17px !important;
+  }
+
+  .package{
+    min-height:235px !important;
+  }
+  .package h3{
+    font-size:40px !important;
+  }
+
+  .work{
+    border-radius:22px !important;
+  }
+  .work-tag{
+    font-size:13px !important;
+  }
+
+  .safety-card{
+    min-height:185px !important;
+  }
+  .safety-card h3{
+    font-size:34px !important;
+  }
+  .safety-card p{
+    font-size:17px !important;
+  }
+
+  .master:nth-child(2){
+    margin-top:0 !important;
+  }
+  .master-body h3,
+  .master-copy h3{
+    font-size:40px !important;
+  }
+  .master-body p,
+  .master-copy p{
+    font-size:17px !important;
+  }
+
+  .faq-btn{
+    min-height:86px !important;
+  }
+  .faq-btn strong{
+    font-size:25px !important;
+  }
+  .faq-answer p{
+    font-size:16px !important;
+  }
+
+  .booking-copy,
+  .booking-form{
+    padding:28px !important;
+  }
+  .field input,
+  .field select{
+    min-height:60px !important;
+    font-size:17px !important;
+  }
+  .submit-btn{
+    min-height:62px !important;
+    font-size:18px !important;
+  }
+
+  /* На тач-устройствах hover-движения не нужны */
+  .point:hover,
+  .package:hover,
+  .work:hover,
+  .safety-card:hover,
+  .master:hover,
+  .submit-btn:hover{
+    transform:none !important;
+  }
+  .work:hover img,
+  .master:hover img{
+    transform:none !important;
+  }
+}
+
+/* узкие телефоны */
+@media(max-width:390px){
+  .hero h1{
+    font-size:68px !important;
+  }
+  h2{
+    font-size:52px !important;
+  }
+  .service-btn h3{
+    font-size:27px !important;
+  }
+}
+
+
+/* ==========================================================
+   NAIL ROOM v12 — XXL UI / TOUCH / READABILITY PASS
+   ========================================================== */
+
+:root{
+  --xxl-body:20px;
+  --xxl-small:14px;
+  --xxl-control:18px;
+  --xxl-radius:20px;
+}
+
+body{
+  font-size:var(--xxl-body) !important;
+  line-height:1.62 !important;
+}
+
+.shell{
+  width:min(1540px,93vw) !important;
+}
+
+.section{
+  padding:142px 0 !important;
+}
+
+/* ---------- типографика ---------- */
+.eyebrow{
+  font-size:15px !important;
+  line-height:1.35 !important;
+  letter-spacing:.14em !important;
+  margin-bottom:16px !important;
+}
+
+.lead{
+  font-size:22px !important;
+  line-height:1.65 !important;
+}
+
+h2{
+  font-size:clamp(76px,7.6vw,124px) !important;
+  line-height:.90 !important;
+  letter-spacing:-.058em !important;
+}
+
+/* ---------- левая навигация ---------- */
+.rail{
+  width:310px !important;
+  padding:38px 28px !important;
+}
+
+.site{
+  margin-left:310px !important;
+}
+
+.rail-brand{
+  font-size:28px !important;
+  line-height:1.02 !important;
+}
+
+.rail-brand small{
+  margin-top:10px !important;
+  font-size:12px !important;
+  line-height:1.4 !important;
+}
+
+.rail-mark{
+  width:22px !important;
+  height:22px !important;
+  margin-right:12px !important;
+}
+
+.rail-nav{
+  gap:13px !important;
+}
+
+.rail-nav a{
+  grid-template-columns:38px 1fr !important;
+  gap:12px !important;
+  min-height:70px !important;
+  padding:17px 16px !important;
+  border-radius:18px !important;
+  font-size:18px !important;
+  line-height:1.18 !important;
+}
+
+.rail-nav a span{
+  font-size:12px !important;
+}
+
+.rail-foot{
+  font-size:13px !important;
+  line-height:1.6 !important;
+}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100svh !important;
+  padding:98px 0 82px !important;
+}
+
+.hero h1{
+  font-size:clamp(124px,11vw,206px) !important;
+  line-height:.75 !important;
+}
+
+.hero-copy .lead{
+  max-width:680px !important;
+  margin-top:38px !important;
+  font-size:25px !important;
+}
+
+.hero-links{
+  gap:16px !important;
+  margin-top:40px !important;
+}
+
+/* Было текстовыми ссылками — теперь это заметные кнопки, но не гигантские. */
+.text-link{
+  min-height:58px !important;
+  padding:0 22px !important;
+  border:1px solid rgba(201,63,104,.22) !important;
+  border-radius:999px !important;
+  background:rgba(255,255,255,.76) !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  font-size:18px !important;
+  font-weight:900 !important;
+  text-decoration:none !important;
+}
+
+.text-link.alt{
+  background:var(--berry) !important;
+  color:#fff !important;
+  border-color:var(--berry) !important;
+}
+
+.hero-notes{
+  gap:34px !important;
+  margin-top:44px !important;
+  padding-top:26px !important;
+}
+
+.hero-notes b{
+  font-size:19px !important;
+}
+
+.hero-notes span{
+  margin-top:6px !important;
+  font-size:14px !important;
+}
+
+.hero-media{
+  min-height:790px !important;
+}
+
+.hero-badge{
+  width:152px !important;
+  height:152px !important;
+  font-size:12px !important;
+}
+
+/* ---------- о студии ---------- */
+.point{
+  min-height:190px !important;
+  padding:34px !important;
+  border-radius:24px !important;
+}
+
+.point strong{
+  font-size:44px !important;
+}
+
+.point span{
+  margin-top:10px !important;
+  font-size:18px !important;
+  line-height:1.5 !important;
+}
+
+/* ---------- услуги ---------- */
+.section-head{
+  gap:64px !important;
+  margin-bottom:58px !important;
+}
+
+.service-btn{
+  grid-template-columns:74px 1fr auto 56px !important;
+  gap:24px !important;
+  min-height:116px !important;
+  padding:32px 0 !important;
+}
+
+.service-btn .num{
+  font-size:14px !important;
+}
+
+.service-btn h3{
+  font-size:clamp(46px,3.9vw,62px) !important;
+  line-height:1.04 !important;
+}
+
+.service-btn .price{
+  font-size:20px !important;
+  padding:10px 14px !important;
+  border-radius:999px !important;
+  background:rgba(255,255,255,.06) !important;
+}
+
+.service-btn .plus{
+  width:52px !important;
+  height:52px !important;
+  font-size:28px !important;
+}
+
+.service-detail p{
+  padding:0 0 32px 98px !important;
+  max-width:940px !important;
+  font-size:20px !important;
+}
+
+.packages{
+  gap:24px !important;
+  margin-top:48px !important;
+}
+
+.package{
+  min-height:300px !important;
+  padding:36px !important;
+  border-radius:26px !important;
+}
+
+.package small{
+  font-size:13px !important;
+}
+
+.package h3{
+  margin-top:25px !important;
+  font-size:48px !important;
+}
+
+.package p{
+  margin-top:14px !important;
+  font-size:19px !important;
+}
+
+.package strong{
+  margin-top:28px !important;
+  font-size:24px !important;
+}
+
+/* ---------- работы ---------- */
+.works-head{
+  margin-bottom:46px !important;
+}
+
+.filters{
+  gap:12px !important;
+  margin-top:30px !important;
+}
+
+.filter{
+  min-height:58px !important;
+  padding:0 22px !important;
+  font-size:16px !important;
+  border-radius:999px !important;
+}
+
+.works-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:24px !important;
+}
+
+.work{
+  border-radius:28px !important;
+}
+
+.work-tag{
+  left:16px !important;
+  bottom:16px !important;
+  min-height:42px !important;
+  padding:10px 15px !important;
+  display:flex !important;
+  align-items:center !important;
+  font-size:14px !important;
+}
+
+/* ---------- безопасность ---------- */
+.safety-grid{
+  gap:8vw !important;
+}
+
+.safety-copy .lead{
+  margin-top:30px !important;
+  font-size:21px !important;
+}
+
+.safety-cards{
+  gap:22px !important;
+}
+
+.safety-card{
+  grid-template-columns:86px 1fr !important;
+  gap:26px !important;
+  min-height:230px !important;
+  padding:42px !important;
+  border-radius:26px !important;
+}
+
+.safety-card .n{
+  font-size:48px !important;
+}
+
+.safety-card h3{
+  font-size:46px !important;
+}
+
+.safety-card p{
+  margin-top:14px !important;
+  font-size:20px !important;
+}
+
+/* ---------- мастера ---------- */
+.team-grid{
+  gap:7vw !important;
+}
+
+.team-copy .lead{
+  margin-top:32px !important;
+  font-size:21px !important;
+}
+
+.masters{
+  gap:24px !important;
+}
+
+.master{
+  border-radius:28px !important;
+}
+
+.master-body{
+  padding:30px !important;
+}
+
+.master-body h3,
+.master-copy h3{
+  font-size:46px !important;
+}
+
+.master-body b,
+.master-copy b{
+  margin-top:10px !important;
+  font-size:17px !important;
+}
+
+.master-body p,
+.master-copy p{
+  margin-top:14px !important;
+  font-size:19px !important;
+}
+
+/* ---------- faq ---------- */
+.faq-grid{
+  gap:8vw !important;
+}
+
+.faq-title .lead{
+  margin-top:28px !important;
+}
+
+.faq-btn{
+  grid-template-columns:58px 1fr 50px !important;
+  gap:18px !important;
+  min-height:104px !important;
+  padding:30px 0 !important;
+}
+
+.faq-btn span{
+  font-size:14px !important;
+}
+
+.faq-btn strong{
+  font-size:35px !important;
+  line-height:1.18 !important;
+}
+
+.faq-btn i{
+  width:48px !important;
+  height:48px !important;
+  font-size:26px !important;
+}
+
+.faq-answer p{
+  padding:0 58px 30px 78px !important;
+  font-size:19px !important;
+}
+
+/* ---------- booking ---------- */
+.booking-grid{
+  gap:30px !important;
+}
+
+.booking-copy{
+  padding:46px !important;
+  border-radius:30px !important;
+}
+
+.booking-copy .lead{
+  margin-top:30px !important;
+  font-size:22px !important;
+}
+
+.booking-copy .status{
+  margin-top:40px !important;
+  min-height:46px !important;
+  padding:0 16px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  font-size:14px !important;
+  border-radius:999px !important;
+}
+
+.booking-form{
+  padding:42px !important;
+  border-radius:30px !important;
+}
+
+.form-grid{
+  gap:18px !important;
+}
+
+.field{
+  gap:10px !important;
+}
+
+.field label{
+  font-size:14px !important;
+}
+
+.field input,
+.field select{
+  min-height:66px !important;
+  padding:0 20px !important;
+  border-radius:17px !important;
+  font-size:18px !important;
+}
+
+.booking-summary{
+  margin-top:22px !important;
+  padding:22px !important;
+  border-radius:18px !important;
+  font-size:17px !important;
+}
+
+.submit-row{
+  margin-top:24px !important;
+  gap:22px !important;
+}
+
+.submit-btn{
+  min-height:66px !important;
+  padding:0 30px !important;
+  border-radius:17px !important;
+  font-size:19px !important;
+}
+
+.submit-note{
+  max-width:340px !important;
+  font-size:14px !important;
+}
+
+.form-message{
+  margin-top:18px !important;
+  font-size:16px !important;
+}
+
+/* ---------- footer ---------- */
+.contact{
+  padding:96px 0 48px !important;
+}
+
+.contact h2{
+  font-size:clamp(68px,6.6vw,104px) !important;
+}
+
+.contact-list{
+  gap:16px !important;
+  margin-top:38px !important;
+}
+
+.contact-item{
+  min-height:84px !important;
+  padding:22px 0 !important;
+}
+
+.contact-item span{
+  font-size:13px !important;
+}
+
+.contact-item strong{
+  margin-top:9px !important;
+  font-size:22px !important;
+}
+
+.creator{
+  padding:28px !important;
+  border-radius:20px !important;
+  font-size:17px !important;
+}
+
+.copyright{
+  margin-top:46px !important;
+  padding-top:24px !important;
+  font-size:13px !important;
+}
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+@media(max-width:1180px) and (min-width:761px){
+  .rail{
+    width:246px !important;
+    padding:30px 18px !important;
+  }
+
+  .site{
+    margin-left:246px !important;
+  }
+
+  .rail-brand{
+    font-size:22px !important;
+  }
+
+  .rail-nav a{
+    min-height:60px !important;
+    padding:13px 11px !important;
+    font-size:15px !important;
+  }
+
+  .hero h1{
+    font-size:clamp(94px,10vw,150px) !important;
+  }
+
+  .works-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .packages{
+    grid-template-columns:1fr !important;
+  }
+}
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+@media(max-width:760px){
+  body{
+    font-size:18px !important;
+  }
+
+  .section{
+    padding:96px 0 !important;
+  }
+
+  .mobile-top{
+    min-height:76px !important;
+    padding:0 14px !important;
+  }
+
+  .mobile-brand{
+    font-size:19px !important;
+  }
+
+  .mobile-brand small{
+    font-size:9px !important;
+  }
+
+  .burger{
+    width:54px !important;
+    height:54px !important;
+  }
+
+  .drawer{
+    padding:86px 16px 24px !important;
+  }
+
+  .drawer a{
+    min-height:64px !important;
+    padding:15px 14px !important;
+    border-radius:16px !important;
+    font-size:22px !important;
+  }
+
+  .drawer a span{
+    font-size:12px !important;
+  }
+
+  .hero{
+    padding:108px 0 68px !important;
+  }
+
+  .hero h1{
+    font-size:clamp(76px,20vw,96px) !important;
+  }
+
+  .hero-copy .lead{
+    margin-top:28px !important;
+    font-size:20px !important;
+  }
+
+  .hero-links{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+  }
+
+  .text-link{
+    width:100% !important;
+    min-height:60px !important;
+    font-size:17px !important;
+  }
+
+  .hero-notes{
+    gap:18px !important;
+    margin-top:32px !important;
+  }
+
+  .hero-notes b{
+    font-size:17px !important;
+  }
+
+  .hero-notes span{
+    font-size:13px !important;
+  }
+
+  .hero-media{
+    min-height:540px !important;
+  }
+
+  h2{
+    font-size:clamp(58px,15.5vw,78px) !important;
+  }
+
+  .eyebrow{
+    font-size:12px !important;
+  }
+
+  .lead{
+    font-size:18px !important;
+  }
+
+  .intro-points{
+    grid-template-columns:1fr !important;
+  }
+
+  .point{
+    min-height:160px !important;
+    padding:28px !important;
+  }
+
+  .point strong{
+    font-size:38px !important;
+  }
+
+  .point span{
+    font-size:16px !important;
+  }
+
+  .service-btn{
+    grid-template-columns:40px minmax(0,1fr) auto !important;
+    min-height:96px !important;
+    gap:10px !important;
+    padding:26px 0 !important;
+  }
+
+  .service-btn .num{
+    font-size:12px !important;
+  }
+
+  .service-btn h3{
+    font-size:31px !important;
+  }
+
+  .service-btn .price{
+    font-size:15px !important;
+    padding:8px 10px !important;
+  }
+
+  .service-btn .plus{
+    display:none !important;
+  }
+
+  .service-detail p{
+    padding:0 0 24px 50px !important;
+    font-size:17px !important;
+  }
+
+  .packages,
+  .works-grid,
+  .safety-cards,
+  .masters,
+  .form-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .package{
+    min-height:245px !important;
+    padding:30px !important;
+  }
+
+  .package h3{
+    font-size:42px !important;
+  }
+
+  .package p{
+    font-size:17px !important;
+  }
+
+  .package strong{
+    font-size:21px !important;
+  }
+
+  .filter{
+    min-height:52px !important;
+    padding:0 17px !important;
+    font-size:15px !important;
+  }
+
+  .works-grid{
+    gap:18px !important;
+  }
+
+  .work-tag{
+    min-height:42px !important;
+    font-size:13px !important;
+  }
+
+  .safety-grid,
+  .team-grid,
+  .faq-grid,
+  .booking-grid,
+  .contact-grid{
+    grid-template-columns:1fr !important;
+    gap:36px !important;
+  }
+
+  .safety-card{
+    grid-template-columns:60px 1fr !important;
+    min-height:190px !important;
+    padding:28px !important;
+  }
+
+  .safety-card .n{
+    font-size:40px !important;
+  }
+
+  .safety-card h3{
+    font-size:35px !important;
+  }
+
+  .safety-card p{
+    font-size:17px !important;
+  }
+
+  .master:nth-child(2){
+    margin-top:0 !important;
+  }
+
+  .master-body{
+    padding:25px !important;
+  }
+
+  .master-body h3,
+  .master-copy h3{
+    font-size:40px !important;
+  }
+
+  .master-body b,
+  .master-copy b{
+    font-size:15px !important;
+  }
+
+  .master-body p,
+  .master-copy p{
+    font-size:17px !important;
+  }
+
+  .faq-btn{
+    grid-template-columns:40px minmax(0,1fr) 40px !important;
+    min-height:88px !important;
+    padding:24px 0 !important;
+  }
+
+  .faq-btn strong{
+    font-size:25px !important;
+  }
+
+  .faq-btn i{
+    width:38px !important;
+    height:38px !important;
+  }
+
+  .faq-answer p{
+    padding:0 44px 24px 48px !important;
+    font-size:16px !important;
+  }
+
+  .booking-copy,
+  .booking-form{
+    padding:30px !important;
+  }
+
+  .field input,
+  .field select{
+    min-height:62px !important;
+    font-size:17px !important;
+  }
+
+  .submit-row{
+    display:grid !important;
+  }
+
+  .submit-btn{
+    width:100% !important;
+    min-height:64px !important;
+    font-size:18px !important;
+  }
+
+  .submit-note{
+    font-size:13px !important;
+  }
+
+  .contact-item{
+    min-height:80px !important;
+  }
+
+  .contact-item strong{
+    font-size:20px !important;
+  }
+
+  .creator{
+    font-size:15px !important;
+  }
+}
+
+@media(max-width:390px){
+  .shell{
+    width:calc(100% - 24px) !important;
+  }
+
+  .hero h1{
+    font-size:70px !important;
+  }
+
+  h2{
+    font-size:54px !important;
+  }
+
+  .service-btn h3{
+    font-size:28px !important;
+  }
+
+  .service-btn .price{
+    font-size:14px !important;
+  }
+}
+
+
+/* ==========================================================
+   NAIL ROOM v13 — MASTER CARDS + PRECISE NAVIGATION FIX
+   ========================================================== */
+
+/* WORKS: меньше пустоты, заголовок и пояснение читаются как единый блок */
+#works{
+  scroll-margin-top:0 !important;
+  padding-top:112px !important;
+}
+.works-head{
+  display:grid !important;
+  grid-template-columns:minmax(0,1.18fr) minmax(320px,.52fr) !important;
+  gap:48px !important;
+  align-items:end !important;
+  margin-bottom:42px !important;
+}
+.works-head h2{
+  max-width:980px !important;
+}
+.works-head .lead{
+  max-width:470px !important;
+  font-size:19px !important;
+  line-height:1.6 !important;
+  padding-bottom:12px !important;
+}
+.works .filters{
+  margin-top:26px !important;
+}
+
+/* TEAM: мастера получают всю ширину секции — больше никакой обрезки третьей карточки */
+#team{
+  overflow:hidden;
+  padding-top:112px !important;
+}
+.team-grid{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:46px !important;
+  align-items:start !important;
+}
+.team-copy{
+  max-width:980px !important;
+}
+.team-copy .lead{
+  max-width:720px !important;
+}
+.masters{
+  width:100% !important;
+  max-width:100% !important;
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:26px !important;
+  align-items:stretch !important;
+}
+.master,
+.master:nth-child(2){
+  min-width:0 !important;
+  width:100% !important;
+  max-width:100% !important;
+  margin-top:0 !important;
+  transform:none !important;
+  display:flex !important;
+  flex-direction:column !important;
+  overflow:hidden !important;
+  border-radius:28px !important;
+}
+.master-photo{
+  width:100% !important;
+  aspect-ratio:4/3 !important;
+  overflow:hidden !important;
+  flex:0 0 auto !important;
+}
+.master-photo img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center 42% !important;
+}
+.master-body{
+  flex:1 1 auto !important;
+  min-height:305px !important;
+  padding:28px 30px 30px !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.master-body h3{
+  font-size:42px !important;
+  line-height:1 !important;
+  overflow-wrap:anywhere !important;
+}
+.master-body b{
+  display:block !important;
+  margin-top:18px !important;
+  font-size:16px !important;
+  line-height:1.45 !important;
+  color:var(--berry) !important;
+}
+.master-body p{
+  margin-top:20px !important;
+  font-size:18px !important;
+  line-height:1.65 !important;
+  color:#755f67 !important;
+}
+
+/* Rail buttons clearly clickable and stable */
+.rail-nav a{
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+}
+.rail-nav a::after{
+  content:'';
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:4px;
+  border-radius:0 8px 8px 0;
+  background:transparent;
+  transition:background .18s ease;
+}
+.rail-nav a.active::after{
+  background:var(--berry) !important;
+}
+
+/* The browser's raw anchor jump is no longer relied on, but keep sensible fallback */
+main section[id], footer[id]{
+  scroll-margin-top:34px !important;
+}
+
+@media(max-width:1180px) and (min-width:761px){
+  .works-head{
+    grid-template-columns:1fr !important;
+    gap:20px !important;
+  }
+  .works-head .lead{max-width:720px !important;padding-bottom:0 !important}
+  .masters{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .master-body{min-height:280px !important}
+}
+
+@media(max-width:760px){
+  #works,#team{padding-top:92px !important}
+  .works-head{
+    grid-template-columns:1fr !important;
+    gap:18px !important;
+    margin-bottom:30px !important;
+  }
+  .works-head .lead{
+    font-size:17px !important;
+    padding-bottom:0 !important;
+  }
+  .masters{
+    grid-template-columns:1fr !important;
+    gap:18px !important;
+  }
+  .master-photo{
+    aspect-ratio:5/4 !important;
+  }
+  .master-body{
+    min-height:0 !important;
+    padding:24px !important;
+  }
+  .master-body h3{font-size:38px !important}
+  .master-body b{font-size:15px !important;margin-top:14px !important}
+  .master-body p{font-size:17px !important;margin-top:15px !important}
+}
+
+
+/* ===== v14 / MASTER PHOTO PASS ===== */
+.master-photo{
+  aspect-ratio:4/5 !important;
+  background:#eee8e4 !important;
+}
+.master-photo img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center 38% !important;
+}
+.master:nth-child(2) .master-photo img{
+  object-position:center 42% !important;
+}
+.master:nth-child(3) .master-photo img{
+  object-position:center 35% !important;
+}
+
+
+/* ==========================================================
+   NAIL ROOM v15 — RESPONSIVE WIDTH / NAV / TOUCH FIX
+   ========================================================== */
+
+/* Фиксированная левая панель не должна увеличивать ширину документа */
+html{
+  scroll-padding-top:24px;
+}
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden !important;
+}
+
+.site{
+  margin-left:310px !important;
+  width:calc(100% - 310px) !important;
+  max-width:calc(100% - 310px) !important;
+  overflow-x:clip;
+}
+
+/* shell считается от доступной области сайта, а не от всего viewport */
+.site .shell{
+  width:min(1540px, calc(100% - 56px)) !important;
+  max-width:100% !important;
+}
+
+/* Не позволяем grid/flex детям растянуть страницу */
+.site *,
+.site *::before,
+.site *::after{
+  min-width:0;
+}
+
+img,svg,video,iframe{
+  max-width:100%;
+}
+
+/* Desktop: более естественное позиционирование после клика по меню */
+main section[id],
+footer[id]{
+  scroll-margin-top:24px !important;
+}
+
+/* Планшет с боковой навигацией */
+@media(max-width:1180px) and (min-width:761px){
+  .site{
+    margin-left:246px !important;
+    width:calc(100% - 246px) !important;
+    max-width:calc(100% - 246px) !important;
+  }
+
+  .site .shell{
+    width:calc(100% - 36px) !important;
+  }
+
+  .works-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .masters{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+/* Телефон: полностью убираем наследованный margin-left от desktop XXL-pass */
+@media(max-width:760px){
+  html{
+    scroll-padding-top:88px;
+  }
+
+  .site{
+    margin-left:0 !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow-x:hidden !important;
+  }
+
+  .site .shell{
+    width:calc(100% - 28px) !important;
+    max-width:calc(100% - 28px) !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  main section[id],
+  footer[id]{
+    scroll-margin-top:88px !important;
+  }
+
+  /* fixed header не должен перекрывать элементы, к которым скроллит браузер */
+  .filters,
+  .service-list,
+  .faq-list,
+  .booking-form{
+    scroll-margin-top:88px;
+  }
+
+  .hero-grid,
+  .intro-grid,
+  .section-head,
+  .works-head,
+  .safety-grid,
+  .team-grid,
+  .faq-grid,
+  .booking-grid,
+  .contact-grid{
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  .service-btn{
+    width:100% !important;
+  }
+
+  .works-grid,
+  .masters,
+  .safety-cards,
+  .packages{
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  .field input,
+  .field select,
+  .submit-btn{
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  /* Без случайного горизонтального движения пальцем */
+  .drawer{
+    width:100% !important;
+    max-width:100% !important;
+  }
+}
+
+@media(max-width:390px){
+  .site .shell{
+    width:calc(100% - 24px) !important;
+    max-width:calc(100% - 24px) !important;
+  }
+}
+
+
+/* ==========================================================
+   NAIL ROOM v16 — FINAL CROSS-DEVICE AUDIT FIX
+   ========================================================== */
+
+/*
+  В предыдущих версиях content-visibility:auto экономил рендеринг,
+  но менял реальную высоту длинной страницы во время smooth-scroll.
+  Из-за этого дальние пункты меню могли останавливаться раньше нужной
+  секции. Проект достаточно лёгкий, поэтому стабильная навигация важнее.
+*/
+.services,
+.works,
+.safety,
+.team,
+.faq,
+.booking,
+.contact{
+  content-visibility:visible !important;
+  contain-intrinsic-size:auto !important;
+}
+
+/* Якорные позиции становятся стабильными сразу после загрузки */
+main section[id],
+footer[id]{
+  scroll-margin-top:24px !important;
+}
+
+/* Планшеты: при боковой панели не зажимаем форму в 4 узких колонки */
+@media(max-width:900px) and (min-width:761px){
+  .booking-grid,
+  .safety-grid,
+  .faq-grid,
+  .contact-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .field.full{
+    grid-column:auto !important;
+  }
+
+  .booking-copy,
+  .booking-form{
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  .safety-cards{
+    width:100% !important;
+  }
+}
+
+/* Мобильная шапка никогда не накрывает интерактивы после scrollIntoView/focus */
+@media(max-width:760px){
+  html{
+    scroll-padding-top:92px !important;
+  }
+
+  main section[id],
+  footer[id],
+  .filters,
+  .service-list,
+  .faq-list,
+  .booking-form{
+    scroll-margin-top:92px !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<aside class="rail" aria-label="Навигация по разделам">
+  <a class="rail-brand" href="#top"><span class="rail-mark"></span>NAIL ROOM<small>STUDIO · САМАРА</small></a>
+  <nav class="rail-nav">
+    <a href="#about"><span>01</span>О студии</a><a href="#services"><span>02</span>Услуги</a><a href="#works"><span>03</span>Работы</a><a href="#safety"><span>04</span>Безопасность</a><a href="#team"><span>05</span>Мастера</a><a href="#faq"><span>06</span>Вопросы</a><a href="#booking"><span>07</span>Запись</a><a href="#contact"><span>08</span>Контакты</a>
+  </nav>
+  <div class="rail-foot">Демонстрационный проект.<br>Онлайн-запись работает через Telegram.</div>
+</aside>
+
+<header class="mobile-top"><a class="mobile-brand" href="#top">NAIL ROOM<small>STUDIO · САМАРА</small></a><button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span></button></header>
+<nav class="drawer" aria-label="Мобильное меню">
+  <a href="#about"><span>01</span>О студии</a><a href="#services"><span>02</span>Услуги</a><a href="#works"><span>03</span>Работы</a><a href="#safety"><span>04</span>Безопасность</a><a href="#team"><span>05</span>Мастера</a><a href="#faq"><span>06</span>Вопросы</a><a href="#booking"><span>07</span>Запись</a><a href="#contact"><span>08</span>Контакты</a>
+</nav>
+
+<div class="site">
+<main id="top">
+<section class="hero"><div class="shell hero-grid"><div class="hero-copy"><div class="eyebrow">NAIL STUDIO / SAMARA</div><h1>NAIL<br><em>room</em></h1><p class="lead">Студия маникюра в Самаре: аккуратная форма, чистое покрытие, укрепление и дизайн без лишней суеты.</p><div class="hero-links"><a class="text-link alt" href="#works">Смотреть работы ↘</a><a class="text-link" href="#services">Услуги и цены</a></div><div class="hero-notes"><div><b>10:00–21:00</b><span>ежедневно</span></div><div><b>3 мастера</b><span>разные специализации</span></div><div><b>Telegram</b><span>онлайн-запись</span></div></div></div><div class="hero-media"><div class="hero-main"><img src="assets/hero-main.jpg" width="1125" height="1500" alt="Нюдовый маникюр с деликатным дизайном" decoding="async" fetchpriority="high"></div><div class="hero-process"><img src="assets/hero-process.jpg" width="1002" height="1500" alt="Процесс профессионального маникюра" decoding="async"></div><div class="hero-badge">NAIL<br>CARE<br>SAMARA</div></div></div></section>
+
+<section id="about" class="intro section"><div class="shell intro-grid reveal"><div class="intro-copy"><div class="eyebrow">01 / О СТУДИИ</div><h2>Маникюр без ощущения конвейера.</h2><p class="lead">Перед процедурой обсуждаем форму, длину и оттенок. Во время работы не торопимся, а после — даём короткие рекомендации по уходу.</p></div><div class="intro-points"><div class="point"><strong>60+</strong><span>оттенков в палитре</span></div><div class="point"><strong>3</strong><span>мастера с разным почерком</span></div><div class="point"><strong>1,5–2 ч</strong><span>среднее время процедуры</span></div><div class="point"><strong>Фото</strong><span>референс можно показать заранее</span></div></div></div></section>
+
+<section id="services" class="services section"><div class="shell"><div class="section-head reveal"><div><div class="eyebrow">02 / УСЛУГИ И ЦЕНЫ</div><h2>Прайс без мелкого шрифта.</h2></div><p class="lead">Нажмите на услугу — откроется состав процедуры. Цены демонстрационные, но выглядят как нормальный салонный прайс.</p></div><div class="service-list">
+<article class="service-row open"><button class="service-btn" type="button" aria-expanded="true"><span class="num">01</span><h3>Маникюр + покрытие</h3><span class="price">от 2 300 ₽</span><span class="plus">+</span></button><div class="service-detail"><div><p>Снятие, маникюр, выравнивание, однотонное покрытие и финишный уход.</p></div></div></article><article class="service-row"><button class="service-btn" type="button" aria-expanded="false"><span class="num">02</span><h3>Маникюр без покрытия</h3><span class="price">от 1 500 ₽</span><span class="plus">+</span></button><div class="service-detail"><div><p>Обработка кутикулы, форма, полировка ногтевой пластины и уход.</p></div></div></article><article class="service-row"><button class="service-btn" type="button" aria-expanded="false"><span class="num">03</span><h3>Укрепление</h3><span class="price">от 2 900 ₽</span><span class="plus">+</span></button><div class="service-detail"><div><p>Укрепление тонкой или ломкой пластины с подбором материала под состояние ногтей.</p></div></div></article><article class="service-row"><button class="service-btn" type="button" aria-expanded="false"><span class="num">04</span><h3>Френч</h3><span class="price">от 2 800 ₽</span><span class="plus">+</span></button><div class="service-detail"><div><p>Маникюр, выравнивание и аккуратный френч с подбором формы линии улыбки.</p></div></div></article><article class="service-row"><button class="service-btn" type="button" aria-expanded="false"><span class="num">05</span><h3>Nail art</h3><span class="price">от 900 ₽</span><span class="plus">+</span></button><div class="service-detail"><div><p>Chrome, aura, геометрия, акцентные ногти и более сложные варианты дизайна.</p></div></div></article><article class="service-row"><button class="service-btn" type="button" aria-expanded="false"><span class="num">06</span><h3>SPA-уход для рук</h3><span class="price">от 1 200 ₽</span><span class="plus">+</span></button><div class="service-detail"><div><p>Мягкий уход, скраб, маска и крем — можно добавить к основной процедуре.</p></div></div></article><article class="service-row"><button class="service-btn" type="button" aria-expanded="false"><span class="num">07</span><h3>Снятие + маникюр</h3><span class="price">от 1 900 ₽</span><span class="plus">+</span></button><div class="service-detail"><div><p>Снятие старого материала, маникюр и уход без нового покрытия.</p></div></div></article><article class="service-row"><button class="service-btn" type="button" aria-expanded="false"><span class="num">08</span><h3>Коррекция одного ногтя</h3><span class="price">от 450 ₽</span><span class="plus">+</span></button><div class="service-detail"><div><p>Локальный ремонт скола или трещины без полной процедуры.</p></div></div></article>
+</div><div class="packages reveal"><article class="package"><small>ПАКЕТ 01</small><h3>Clean</h3><p>Маникюр + однотонное покрытие.</p><strong>от 2 300 ₽</strong></article><article class="package featured"><small>ПАКЕТ 02</small><h3>Strong</h3><p>Маникюр + укрепление + покрытие.</p><strong>от 3 200 ₽</strong></article><article class="package"><small>ПАКЕТ 03</small><h3>Design</h3><p>Маникюр + покрытие + nail art.</p><strong>от 3 500 ₽</strong></article></div></div></section>
+
+<section id="works" class="works section"><div class="shell"><div class="works-head reveal"><div><div class="eyebrow">03 / РАБОТЫ</div><h2>Больше примеров — меньше пустоты.</h2><div class="filters"><button class="filter active" data-filter="all">Все</button><button class="filter" data-filter="nude">Нюд</button><button class="filter" data-filter="classic">Классика</button><button class="filter" data-filter="design">Дизайн</button></div></div><p class="lead">В каждой категории остаётся несколько работ, поэтому после переключения фильтра сетка не выглядит недоделанной.</p></div><div class="works-grid">
+<figure class="work" data-cat="nude design"><img src="assets/work-01.jpg" width="833" height="1250" alt="Нюдовый маникюр с блёстками" decoding="async" loading="lazy"><figcaption class="work-tag">НЮД / GLOW</figcaption></figure>
+<figure class="work" data-cat="classic nude"><img src="assets/work-02.jpg" width="1250" height="833" alt="Светлый классический маникюр" decoding="async" loading="lazy"><figcaption class="work-tag">CLASSIC / NUDE</figcaption></figure>
+<figure class="work" data-cat="classic"><img src="assets/work-03.jpg" width="942" height="1250" alt="Светлый маникюр с аккуратным покрытием" decoding="async" loading="lazy"><figcaption class="work-tag">MILKY / 03</figcaption></figure>
+<figure class="work" data-cat="classic"><img src="assets/work-04.jpg" width="833" height="1250" alt="Френч и уход за ногтями" decoding="async" loading="lazy"><figcaption class="work-tag">FRENCH / 04</figcaption></figure>
+<figure class="work" data-cat="design"><img src="assets/work-05.jpg" width="833" height="1250" alt="Чёрный маникюр с леопардовым дизайном" decoding="async" loading="lazy"><figcaption class="work-tag">ART / LEOPARD</figcaption></figure>
+<figure class="work" data-cat="nude design"><img src="assets/work-06.jpg" width="1250" height="833" alt="Розовый маникюр с блёстками" decoding="async" loading="lazy"><figcaption class="work-tag">PINK / GLOSS</figcaption></figure>
+<figure class="work" data-cat="design nude"><img src="assets/work-07.jpg" width="833" height="1250" alt="Пастельный разноцветный маникюр" decoding="async" loading="lazy"><figcaption class="work-tag">PASTEL / MIX</figcaption></figure>
+<figure class="work" data-cat="design"><img src="assets/work-08.jpg" width="833" height="1250" alt="Синий яркий маникюр" decoding="async" loading="lazy"><figcaption class="work-tag">BLUE / 08</figcaption></figure>
+</div></div></section>
+
+<section id="safety" class="safety section"><div class="shell safety-grid reveal"><div class="safety-copy"><div class="eyebrow">04 / БЕЗОПАСНОСТЬ</div><h2>Не мелким шрифтом.</h2><p class="lead">Безопасность — отдельная часть услуги, поэтому этот блок теперь читается как полноценный раздел, а не как сноска.</p></div><div class="safety-cards"><article class="safety-card"><div class="n">01</div><div><h3>Инструменты</h3><p>После каждого клиента инструменты проходят отдельный цикл очистки и подготовки.</p></div></article><article class="safety-card"><div class="n">02</div><div><h3>Одноразовые расходники</h3><p>То, что рассчитано на одно использование, не переходит от клиента к клиенту.</p></div></article><article class="safety-card"><div class="n">03</div><div><h3>Рабочая зона</h3><p>Стол и контактные поверхности подготавливаются перед каждой новой процедурой.</p></div></article></div></div></section>
+
+<section id="team" class="team section"><div class="shell team-grid"><div class="team-copy reveal"><div class="eyebrow">05 / МАСТЕРА</div><h2>Видно, к кому вы записываетесь.</h2><p class="lead">Фотографии, специализация и короткое описание — без безликих карточек с одной буквой.</p></div><div class="masters reveal"><article class="master"><div class="master-photo"><img src="assets/master-sofia.jpg" width="800" height="1000" alt="Портрет мастера Софии в салоне" decoding="async" loading="lazy"></div><div class="master-body"><h3>София</h3><b>МИНИМАЛИЗМ · КОРОТКАЯ ДЛИНА</b><p>Аккуратный нюд, естественная форма и спокойные дизайны.</p></div></article><article class="master"><div class="master-photo"><img src="https://images.pexels.com/photos/18090215/pexels-photo-18090215.jpeg?auto=compress&cs=tinysrgb&w=900" width="667" height="1000" alt="Портрет мастера Полины с аппаратом для маникюра" decoding="async" loading="lazy"></div><div class="master-body"><h3>Полина</h3><b>УКРЕПЛЕНИЕ · АРХИТЕКТУРА</b><p>Работа с тонкой пластиной, укрепление и более сложная форма.</p></div></article><article class="master"><div class="master-photo"><img src="assets/master-anastasia.jpg" width="800" height="1000" alt="Портрет мастера Анастасии в салоне" decoding="async" loading="lazy"></div><div class="master-body"><h3>Анастасия</h3><b>NAIL ART · CHROME · AURA</b><p>Акцентные дизайны, необычные сочетания и более смелая подача.</p></div></article></div></div></section>
+
+<section id="faq" class="faq section"><div class="shell faq-grid reveal"><div class="faq-title"><div class="eyebrow">06 / ВОПРОСЫ</div><h2>Перед записью.</h2><p class="lead">Короткие ответы на то, что обычно спрашивают до визита.</p></div><div class="faq-list"><article class="faq-item open"><button class="faq-btn" type="button" aria-expanded="true"><span>01</span><strong>Сколько занимает маникюр с покрытием?</strong><i>+</i></button><div class="faq-answer"><div><p>Обычно около 1,5–2 часов. Точное время зависит от снятия, укрепления и дизайна.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>02</span><strong>Можно прийти со старым покрытием?</strong><i>+</i></button><div class="faq-answer"><div><p>Да. Снятие можно добавить к выбранной услуге.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>03</span><strong>Можно заранее показать референс?</strong><i>+</i></button><div class="faq-answer"><div><p>Да. Референс можно заранее показать мастеру перед визитом.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>04</span><strong>Как выбрать мастера?</strong><i>+</i></button><div class="faq-answer"><div><p>По специализации или по удобному свободному времени.</p></div></div></article></div></div></section>
+
+<section id="booking" class="booking section"><div class="shell booking-grid"><div class="booking-copy reveal"><div class="eyebrow">07 / ЗАПИСЬ</div><h2>Запись через Telegram.</h2><p class="lead">Выберите услугу, мастера, дату и время на сайте. Telegram-бот получит выбор и попросит только имя и телефон для подтверждения.</p><span class="status">ONLINE · TELEGRAM BOT</span></div><form class="booking-form reveal" id="bookingForm"><div class="form-grid"><div class="field"><label for="serviceSelect">Услуга</label><select id="serviceSelect"><option>Маникюр + покрытие</option><option>Маникюр без покрытия</option><option>Укрепление</option><option>Френч</option><option>Nail art</option></select></div><div class="field"><label for="masterSelect">Мастер</label><select id="masterSelect"><option>София</option><option>Полина</option><option>Анастасия</option></select></div><div class="field"><label for="dateInput">Дата</label><input id="dateInput" type="date"></div><div class="field"><label for="timeSelect">Время</label><select id="timeSelect"><option>14:30</option><option>16:00</option><option>18:30</option></select></div></div><div class="booking-summary" id="bookingSummary">Маникюр + покрытие · София · выберите дату · 14:30</div><div class="submit-row"><button class="submit-btn" type="submit">Продолжить в Telegram →</button><span class="submit-note">Имя и телефон бот запросит в Telegram. Выбранные на сайте услуга, мастер, дата и время сохранятся.</span></div><div class="form-message" id="formMessage" aria-live="polite"></div></form></div></section>
+</main>
+
+<footer id="contact" class="contact"><div class="shell"><div class="contact-grid"><div><div class="eyebrow">08 / КОНТАКТЫ</div><h2>Самара.<br>Ленинградская, 38.</h2><div class="contact-list"><div class="contact-item"><span>Режим</span><strong>10:00–21:00 · ежедневно</strong></div><div class="contact-item"><span>Телефон салона</span><strong>+7 (927) 314-28-61</strong></div><div class="contact-item"><span>Запись</span><strong>Telegram · онлайн-запись</strong></div><div class="contact-item"><span>Статус</span><strong>Демонстрационный проект</strong></div></div></div><div class="creator"><b>Разработка сайта — Кошелев Илья Вадимович</b><br>Телефон: <a href="tel:+79334294564">+7 933 429-45-64</a><br>Telegram: <a href="https://t.me/all_might_symbol" target="_blank" rel="noreferrer">@all_might_symbol</a></div></div><div class="copyright">© 2026 NAIL ROOM · демонстрационный проект.</div></div></footer>
+</div>
+
+<script>
+const drawer=document.querySelector('.drawer'),burger=document.querySelector('.burger');
+const toggleDrawer=(open)=>{drawer.classList.toggle('open',open);burger.setAttribute('aria-expanded',String(open));burger.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');document.body.style.overflow=open?'hidden':''};
+burger?.addEventListener('click',()=>toggleDrawer(!drawer.classList.contains('open')));drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleDrawer(false)));
+
+document.querySelectorAll('.service-btn').forEach(btn=>btn.addEventListener('click',()=>{const row=btn.closest('.service-row'),will=!row.classList.contains('open');document.querySelectorAll('.service-row').forEach(r=>{r.classList.remove('open');r.querySelector('.service-btn').setAttribute('aria-expanded','false')});if(will){row.classList.add('open');btn.setAttribute('aria-expanded','true')}}));
+
+document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.work').forEach(card=>{const cats=card.dataset.cat.split(' ');card.classList.toggle('hidden',f!=='all'&&!cats.includes(f))})}));
+
+document.querySelectorAll('.faq-btn').forEach(btn=>btn.addEventListener('click',()=>{const item=btn.closest('.faq-item'),will=!item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-btn').setAttribute('aria-expanded','false')});if(will){item.classList.add('open');btn.setAttribute('aria-expanded','true')}}));
+
+const serviceSelect=document.getElementById('serviceSelect'),masterSelect=document.getElementById('masterSelect'),dateInput=document.getElementById('dateInput'),timeSelect=document.getElementById('timeSelect'),summary=document.getElementById('bookingSummary'),formMessage=document.getElementById('formMessage');
+const formatBookingDate=value=>{if(!value)return 'выберите дату';const [y,m,d]=value.split('-');return `${d}.${m}.${y}`};
+const updateSummary=()=>{summary.textContent=`${serviceSelect.value} · ${masterSelect.value} · ${formatBookingDate(dateInput.value)} · ${timeSelect.value}`;if(dateInput.value)formMessage.textContent=''};
+[serviceSelect,masterSelect,timeSelect].forEach(x=>x.addEventListener('change',updateSummary));
+dateInput.addEventListener('input',updateSummary);dateInput.addEventListener('change',updateSummary);
+const today=new Date();today.setMinutes(today.getMinutes()-today.getTimezoneOffset());dateInput.min=today.toISOString().slice(0,10);
+updateSummary();window.addEventListener('pageshow',updateSummary);
+document.getElementById('bookingForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const msg=document.getElementById('formMessage');
+  if(!dateInput.value){msg.textContent='Сначала выберите дату.';return}
+  const serviceIndex=serviceSelect.selectedIndex;
+  const masterIndex=masterSelect.selectedIndex;
+  const compactDate=dateInput.value.replaceAll('-','');
+  const compactTime=timeSelect.value.replace(':','');
+  const payload=`site_${serviceIndex}_${masterIndex}_${compactDate}_${compactTime}`;
+  msg.textContent='Открываем Telegram для подтверждения записи…';
+  window.location.href=`https://t.me/nail_room_samara_bot?start=${payload}`;
+});
+
+
+// Precise anchor navigation: desktop rail aligns the section heading near the top,
+// mobile drawer keeps enough space for the fixed top bar.
+const navLinks=[...document.querySelectorAll('.rail-nav a, .drawer a')];
+const scrollToSection=(href)=>{
+  if(!href || !href.startsWith('#')) return;
+  const section=document.querySelector(href);
+  if(!section) return;
+  const marker=section.querySelector('.eyebrow') || section.querySelector('h2') || section;
+  const offset=window.innerWidth<=760 ? 92 : 42;
+  const y=Math.max(0, marker.getBoundingClientRect().top + window.scrollY - offset);
+  window.scrollTo({top:y,behavior:'smooth'});
+};
+navLinks.forEach(link=>link.addEventListener('click',e=>{
+  const href=link.getAttribute('href');
+  if(!href || !href.startsWith('#')) return;
+  e.preventDefault();
+  if(link.closest('.drawer')) toggleDrawer(false);
+  history.replaceState(null,'',href);
+  requestAnimationFrame(()=>scrollToSection(href));
+}));
+
+// If the page is opened with a hash, correct the initial browser position as well.
+window.addEventListener('load',()=>{
+  if(location.hash) setTimeout(()=>scrollToSection(location.hash),60);
+});
+
+const sections=[...document.querySelectorAll('main section[id],footer[id]')],railLinks=[...document.querySelectorAll('.rail-nav a')];
+const activeObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){railLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===`#${e.target.id}`))}})},{rootMargin:'-35% 0px -55% 0px'});sections.forEach(s=>activeObserver.observe(s));
+const revealObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObserver.unobserve(e.target)}})},{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+</script>
+</body></html>
