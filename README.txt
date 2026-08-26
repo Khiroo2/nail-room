@@ -11,3 +11,5 @@ v32 — final navigation + mobile QA.
 
 Primary Polina photo: Pexels / Leeloo The First / photo 4677856 (free to use).
 Fallback: Razane.khalil / Wikimedia Commons / Esthéticienne electrolyste.jpg / CC BY-SA 4.0.
+
+Polina photo: Wikimedia Commons — “DZ6 0587 A nail technician carefully files a customers nails at a salon surrounded by color samples and manicure tools.jpg”, PattayaPatrol, CC BY-SA 4.0.
