@@ -3477,11 +3477,6 @@ html,body{
   .faq-btn strong{font-size:17px !important}
 }
 
-/* V24 — Polina portrait: local image, face kept in frame on all screens */
-.master:nth-child(2) .master-photo img{
-  object-fit:cover !important;
-  object-position:center 32% !important;
-}
 
 
 /* ==========================================================
@@ -3575,33 +3570,40 @@ html,body{
 }
 
 
-/* V26 — Polina: real salon portrait, no AI generation */
-.master:nth-child(2) .master-photo img{
-  object-fit:cover !important;
-  object-position:center 34% !important;
-}
 
-
-/* V27 — masters consistency fix */
-.master:nth-child(2){
-  margin-top:0 !important;
-}
-.master:nth-child(2) .master-photo{
-  background:#eee !important;
-  background-image:none !important;
-}
-.master:nth-child(2) .master-photo img{
-  object-fit:cover !important;
-  object-position:center 28% !important;
-}
 
 </style>
 
+
+
+
+
+<link rel="preconnect" href="https://images.pexels.com" crossorigin>
+<link rel="dns-prefetch" href="//images.pexels.com">
+<link rel="preload" as="image" href="https://images.pexels.com/photos/4677856/pexels-photo-4677856.jpeg?cs=srgb&dl=pexels-leeloothefirst-4677856.jpg&fm=jpg" fetchpriority="high">
+
 <style>
-/* V28 FINAL — Polina portrait */
+/* ==========================================================
+   V31 — NAVIGATION / SHORT-SECTIONS / POLINA FINAL QA
+   ========================================================== */
+
+/* Short sections must behave as full-screen slides when opened from navigation. */
+#about,#faq,#booking,#contact{
+  min-height:100vh !important;
+  min-height:100svh !important;
+}
+
+/* The last section needs enough height so its top can align without showing Booking above. */
+#contact{
+  padding-bottom:max(96px,env(safe-area-inset-bottom)) !important;
+}
+
+/* Polina: real nail technician at work. No client portrait, hands-only image or visible broken alt text. */
 .master:nth-child(2){margin-top:0 !important;}
 .master:nth-child(2) .master-photo{
-  background:linear-gradient(145deg,#f4e5e9,#eadde2) !important;
+  position:relative !important;
+  overflow:hidden !important;
+  background:linear-gradient(145deg,#eadde2,#f8eef1) !important;
   background-image:none !important;
 }
 .master:nth-child(2) .master-photo img{
@@ -3609,28 +3611,27 @@ html,body{
   width:100% !important;
   height:100% !important;
   object-fit:cover !important;
-  object-position:center 24% !important;
+  object-position:center 25% !important;
+  transform:none !important;
+}
+.master:nth-child(2) .master-photo.photo-fallback::after{
+  content:'ПОЛИНА · МАСТЕР NAIL ROOM';
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  padding:28px;
+  text-align:center;
+  font:700 16px/1.4 Arial,sans-serif;
+  letter-spacing:.08em;
+  color:#8f4259;
+  background:linear-gradient(145deg,#eadde2,#f8eef1);
+}
+
+@media(max-width:760px){
+  #contact{padding-bottom:max(76px,env(safe-area-inset-bottom)) !important;}
 }
 </style>
-
-
-<style>
-/* V29 — Polina: real nail technician at work */
-.master:nth-child(2){margin-top:0 !important;}
-.master:nth-child(2) .master-photo{
-  background:linear-gradient(145deg,#f3e7ea,#eadde2) !important;
-}
-.master:nth-child(2) .master-photo img{
-  display:block !important;
-  width:100% !important;
-  height:100% !important;
-  object-fit:cover !important;
-  object-position:62% 24% !important;
-  transform:scale(1.13);
-  transform-origin:62% 24%;
-}
-</style>
-
 </head>
 <body>
 <aside class="rail" aria-label="Навигация по разделам">
@@ -3669,7 +3670,7 @@ html,body{
 
 <section id="safety" class="safety section"><div class="shell safety-grid reveal"><div class="safety-copy"><div class="eyebrow">04 / БЕЗОПАСНОСТЬ</div><h2>Не мелким шрифтом.</h2><p class="lead">Безопасность — отдельная часть услуги, поэтому этот блок теперь читается как полноценный раздел, а не как сноска.</p></div><div class="safety-cards"><article class="safety-card"><div class="n">01</div><div><h3>Инструменты</h3><p>После каждого клиента инструменты проходят отдельный цикл очистки и подготовки.</p></div></article><article class="safety-card"><div class="n">02</div><div><h3>Одноразовые расходники</h3><p>То, что рассчитано на одно использование, не переходит от клиента к клиенту.</p></div></article><article class="safety-card"><div class="n">03</div><div><h3>Рабочая зона</h3><p>Стол и контактные поверхности подготавливаются перед каждой новой процедурой.</p></div></article></div></div></section>
 
-<section id="team" class="team section"><div class="shell team-grid"><div class="team-copy reveal"><div class="eyebrow">05 / МАСТЕРА</div><h2>Видно, к кому вы записываетесь.</h2><p class="lead">Фотографии, специализация и короткое описание — без безликих карточек с одной буквой.</p></div><div class="masters reveal"><article class="master"><div class="master-photo"><img src="assets/master-sofia.jpg" width="800" height="1000" alt="Портрет мастера Софии в салоне" decoding="async" loading="eager" fetchpriority="high"></div><div class="master-body"><h3>София</h3><b>МИНИМАЛИЗМ · КОРОТКАЯ ДЛИНА</b><p>Аккуратный нюд, естественная форма и спокойные дизайны.</p></div></article><article class="master"><div class="master-photo"><img src="https://images.pexels.com/photos/15202934/pexels-photo-15202934.jpeg?cs=srgb&dl=pexels-jarib-key-427074312-15202934.jpg&fm=jpg" width="667" height="1000" alt="Полина — мастер маникюра NAIL ROOM" decoding="async" loading="eager" fetchpriority="high" onerror="this.style.display='none'"></div><div class="master-body"><h3>Полина</h3><b>УКРЕПЛЕНИЕ · АРХИТЕКТУРА</b><p>Работа с тонкой пластиной, укрепление и более сложная форма.</p></div></article><article class="master"><div class="master-photo"><img src="assets/master-anastasia.jpg" width="800" height="1000" alt="Портрет мастера Анастасии в салоне" decoding="async" loading="eager" fetchpriority="high"></div><div class="master-body"><h3>Анастасия</h3><b>NAIL ART · CHROME · AURA</b><p>Акцентные дизайны, необычные сочетания и более смелая подача.</p></div></article></div></div></section>
+<section id="team" class="team section"><div class="shell team-grid"><div class="team-copy reveal"><div class="eyebrow">05 / МАСТЕРА</div><h2>Видно, к кому вы записываетесь.</h2><p class="lead">Фотографии, специализация и короткое описание — без безликих карточек с одной буквой.</p></div><div class="masters reveal"><article class="master"><div class="master-photo"><img src="assets/master-sofia.jpg" width="800" height="1000" alt="Портрет мастера Софии в салоне" decoding="async" loading="eager" fetchpriority="high"></div><div class="master-body"><h3>София</h3><b>МИНИМАЛИЗМ · КОРОТКАЯ ДЛИНА</b><p>Аккуратный нюд, естественная форма и спокойные дизайны.</p></div></article><article class="master"><div class="master-photo"><img src="https://images.pexels.com/photos/4677856/pexels-photo-4677856.jpeg?cs=srgb&dl=pexels-leeloothefirst-4677856.jpg&fm=jpg" width="1000" height="1500" alt="" decoding="async" loading="eager" fetchpriority="high" referrerpolicy="no-referrer" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Esth%C3%A9ticienne_electrolyste.jpg/500px-Esth%C3%A9ticienne_electrolyste.jpg';}else{this.onerror=null;this.style.display='none';this.parentElement.classList.add('photo-fallback');}"></div><div class="master-body"><h3>Полина</h3><b>УКРЕПЛЕНИЕ · АРХИТЕКТУРА</b><p>Работа с тонкой пластиной, укрепление и более сложная форма.</p></div></article><article class="master"><div class="master-photo"><img src="assets/master-anastasia.jpg" width="800" height="1000" alt="Портрет мастера Анастасии в салоне" decoding="async" loading="eager" fetchpriority="high"></div><div class="master-body"><h3>Анастасия</h3><b>NAIL ART · CHROME · AURA</b><p>Акцентные дизайны, необычные сочетания и более смелая подача.</p></div></article></div></div></section>
 
 <section id="faq" class="faq section"><div class="shell faq-grid reveal"><div class="faq-title"><div class="eyebrow">06 / ВОПРОСЫ</div><h2>Перед записью.</h2><p class="lead">Короткие ответы на то, что обычно спрашивают до визита.</p></div><div class="faq-list"><article class="faq-item open"><button class="faq-btn" type="button" aria-expanded="true"><span>01</span><strong>Сколько занимает маникюр с покрытием?</strong><i>+</i></button><div class="faq-answer"><div><p>Обычно около 1,5–2 часов. Точное время зависит от снятия, укрепления и дизайна.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>02</span><strong>Можно прийти со старым покрытием?</strong><i>+</i></button><div class="faq-answer"><div><p>Да. Снятие можно добавить к выбранной услуге.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>03</span><strong>Можно заранее показать референс?</strong><i>+</i></button><div class="faq-answer"><div><p>Да. Референс можно заранее показать мастеру перед визитом.</p></div></div></article><article class="faq-item"><button class="faq-btn" type="button" aria-expanded="false"><span>04</span><strong>Как выбрать мастера?</strong><i>+</i></button><div class="faq-answer"><div><p>По специализации или по удобному свободному времени.</p></div></div></article></div></div></section>
 
@@ -3711,34 +3712,51 @@ document.getElementById('bookingForm').addEventListener('submit',e=>{
 });
 
 
-// Precise anchor navigation: desktop rail aligns the section heading near the top,
-// mobile drawer keeps enough space for the fixed top bar.
-const navLinks=[...document.querySelectorAll('.rail-nav a, .drawer a')];
-const scrollToSection=(href)=>{
+// Navigation QA: preserve the alignment of Services / Works / Safety / Masters,
+// and align short slide-sections by the section box itself.
+const navLinks=[...document.querySelectorAll('.rail-nav a, .drawer a, .hero-links a, .rail-brand, .mobile-brand')];
+const slideSections=new Set(['#about','#faq','#booking','#contact']);
+const fixedTopOffset=()=>{
+  if(window.innerWidth<=1024){
+    const topbar=document.querySelector('.mobile-top');
+    return topbar && getComputedStyle(topbar).display!=='none'
+      ? Math.round(topbar.getBoundingClientRect().height)
+      : 0;
+  }
+  return 0;
+};
+const layoutTopOf=(el)=>{
+  let y=0,node=el;
+  while(node){y+=node.offsetTop||0;node=node.offsetParent;}
+  return y;
+};
+const scrollToSection=(href,behavior='smooth')=>{
   if(!href || !href.startsWith('#')) return;
+  if(href==='#top'){window.scrollTo({top:0,behavior});return;}
   const section=document.querySelector(href);
   if(!section) return;
-  const marker=section.querySelector('.eyebrow') || section.querySelector('h2') || section;
-  const offset=window.innerWidth<=760 ? 96 : (window.innerWidth<=1024 ? 80 : 42);
-  // offsetTop ignores reveal transforms, so the final position stays correct
-  // even after the entrance animation moves the content by 18px.
-  let layoutTop=0,node=marker;
-  while(node){layoutTop+=node.offsetTop||0;node=node.offsetParent}
-  const y=Math.max(0,layoutTop-offset);
-  window.scrollTo({top:y,behavior:'smooth'});
+  let y;
+  if(slideSections.has(href)){
+    y=Math.max(0,layoutTopOf(section)-fixedTopOffset());
+  }else{
+    const marker=section.querySelector('.eyebrow') || section.querySelector('h2') || section;
+    const offset=window.innerWidth<=760 ? 96 : (window.innerWidth<=1024 ? 80 : 42);
+    y=Math.max(0,layoutTopOf(marker)-offset);
+  }
+  window.scrollTo({top:Math.round(y),behavior});
 };
 navLinks.forEach(link=>link.addEventListener('click',e=>{
   const href=link.getAttribute('href');
-  if(!href || !href.startsWith('#')) return;
+  if(!href || !href.startsWith('#') || !document.querySelector(href)) return;
   e.preventDefault();
   if(link.closest('.drawer')) toggleDrawer(false);
   history.replaceState(null,'',href);
   requestAnimationFrame(()=>scrollToSection(href));
 }));
-
-// If the page is opened with a hash, correct the initial browser position as well.
 window.addEventListener('load',()=>{
-  if(location.hash) setTimeout(()=>scrollToSection(location.hash),60);
+  if(location.hash && document.querySelector(location.hash)){
+    setTimeout(()=>scrollToSection(location.hash,'auto'),120);
+  }
 });
 
 const sections=[...document.querySelectorAll('main section[id],footer[id]')],railLinks=[...document.querySelectorAll('.rail-nav a')];
